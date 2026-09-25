@@ -2,6 +2,9 @@ extends Node2D
 
 class_name Racer
 
+@export var Graphics: PackedScene
+var graphics_scale: float = 0.5
+
 var grid_position: Vector2 = Vector2(0,0)
 var origin_position_pixel: Vector2 = Vector2(0, 0)
 var target_position_pixel: Vector2 = Vector2(0, 0)
@@ -19,7 +22,13 @@ var swerve_max_x: float = 50.0
 var swerve_max_y: float = 25.0
 var swerve_position: Vector2 = Vector2(0, 0)
 
-func setNewPosition(new_pos: Vector2):
+func setGraphics(new_graphics: PackedScene) -> void:
+	Graphics = new_graphics
+	var child = new_graphics.instantiate()
+	child.scale = Vector2(graphics_scale, graphics_scale)
+	add_child(child)
+
+func setNewPosition(new_pos: Vector2) -> void:
 	grid_position = new_pos
 	is_moving = true
 	var offset: Vector2 = grid_size_pixel / grid_size / 2

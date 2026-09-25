@@ -27,6 +27,7 @@ var danger_wait: float = 3.0
 func _ready() -> void:
 	for i: int in racer_count:
 		var racer: Racer = racer_scene.instantiate()
+		racer.setGraphics(Global.getBirdPackedScene(Global.BIRDS.CROW))
 		racers.append(racer)
 		racers[i].setNewPosition(Vector2(i, 10))
 		manager.add_child.call_deferred(racer)
