@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://crmbigdxcki5w" path="res://scenes/Lane.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://3mkavf7ijekn" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://ce4nixnltsoe2" path="res://scenes/cards.tscn" id="3_lnu2h"]
 
 [node name="Node2D" type="Node2D" unique_id=712603188]
 script = ExtResource("1_yqjtg")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1139690497]
-visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.35686275, 0.7411765, 1, 1)
@@ -27,3 +27,6 @@ position = Vector2(1152, 0)
 position = Vector2(1536, 0)
 
 [node name="Racer_Manager" type="Node2D" parent="." unique_id=1974240630]
+
+[node name="Cards" parent="." unique_id=811278244 instance=ExtResource("3_lnu2h")]
+position = Vector2(460, 140)
