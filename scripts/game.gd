@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var racer_scene: PackedScene = preload("res://scenes/Racer.tscn")
+@onready var danger_scene: PackedScene = preload("res://scenes/effects/LaneDanger.tscn")
 
 var racers: Array[Racer] = []
 
@@ -8,6 +9,7 @@ var racer_count: int = 5
 
 @onready var manager: Node2D = $Racer_Manager
 @onready var text_effect: Label = $CentralText
+@onready var lanes: Array[Node2D] = [$Lane1, $Lane2, $Lane3, $Lane4, $Lane5]
 
 enum game_states {
 	GET,
@@ -56,6 +58,15 @@ func drawDanger() -> void:
 		while dangers[rnd]:
 			rnd = roundi(randf() * 4.0)
 		dangers[rnd] = true
+	flashDanger()
+
+func flashDanger() -> void:
+	var i: int = 0
+	for is_dangerous: bool in dangers:
+		if is_dangerous:
+			var warning: Node2D = danger_scene.instantiate()
+			lanes[i].addWarning(warning)
+		i += 1
 
 func _process(delta: float) -> void:
 	if game_state == game_states.DANGER:
