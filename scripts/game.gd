@@ -20,6 +20,8 @@ enum game_states {
 }
 var game_state: int
 
+var dangers: Array[bool] = [false, false, false, false, false]
+
 func _ready() -> void:
 	for i in racer_count:
 		var racer: Racer = racer_scene.instantiate()
