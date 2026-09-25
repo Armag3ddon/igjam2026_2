@@ -1,12 +1,30 @@
 [gd_scene format=3 uid="uid://ce4nixnltsoe2"]
 
+[ext_resource type="Script" uid="uid://ckopddruqvhca" path="res://scripts/cardShuffle.gd" id="1_02cqd"]
 [ext_resource type="PackedScene" uid="uid://4dntv8t30rvj" path="res://scenes/Card.tscn" id="1_cqxa1"]
 
 [node name="Cards" type="Node2D" unique_id=811278244]
+script = ExtResource("1_02cqd")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=881024166]
 offset_right = 1000.0
 offset_bottom = 800.0
 color = Color(0.18359044, 0.18359044, 0.18359044, 1)
 
-[node name="Card" parent="." unique_id=1079423381 instance=ExtResource("1_cqxa1")]
+[node name="Cardhandler" type="Node2D" parent="." unique_id=569712973]
+position = Vector2(-9, 374)
+scale = Vector2(0.5, 0.5)
+
+[node name="Card1" parent="Cardhandler" unique_id=1079423381 instance=ExtResource("1_cqxa1")]
+
+[node name="Card2" parent="Cardhandler" unique_id=1162718171 instance=ExtResource("1_cqxa1")]
+position = Vector2(518, 0)
+
+[node name="Card3" parent="Cardhandler" unique_id=1596882217 instance=ExtResource("1_cqxa1")]
+position = Vector2(1036, 0)
+
+[node name="Card4" parent="Cardhandler" unique_id=1096476212 instance=ExtResource("1_cqxa1")]
+position = Vector2(1543, 0)
+
+[node name="Card5" parent="Cardhandler" unique_id=1254681985 instance=ExtResource("1_cqxa1")]
+position = Vector2(2073, 0)
