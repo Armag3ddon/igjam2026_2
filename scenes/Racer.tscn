@@ -6,5 +6,5 @@
 [node name="Racer" type="Node2D" unique_id=371145979]
 script = ExtResource("1_1yijf")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1551580359]
+[node name="Graphics" type="Sprite2D" parent="." unique_id=1551580359]
 texture = ExtResource("2_e51ou")

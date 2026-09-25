@@ -3,14 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://crmbigdxcki5w" path="res://scenes/Lane.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://3mkavf7ijekn" path="res://scripts/game.gd" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://ce4nixnltsoe2" path="res://scenes/cards.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://bbedhuxl7hfem" path="res://scripts/central_text.gd" id="4_lbhrr"]
+
+[sub_resource type="Theme" id="Theme_o3h6e"]
+Label/colors/font_color = Color(0.9076238, 0.929141, 0.7962742, 1)
+Label/colors/font_outline_color = Color(0.48424065, 0.44087738, 0.13550127, 1)
+Label/colors/font_shadow_color = Color(0.019749233, 0.009307645, 0.0073774043, 0.90588236)
+Label/constants/outline_size = 8
+Label/constants/shadow_offset_x = 3
+Label/constants/shadow_offset_y = 3
+Label/constants/shadow_outline_size = 13
+Label/font_sizes/font_size = 150
 
 [node name="Node2D" type="Node2D" unique_id=712603188]
 script = ExtResource("1_yqjtg")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1139690497]
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0.35686275, 0.7411765, 1, 1)
 
 [node name="Lane1" parent="." unique_id=1787335881 instance=ExtResource("1_uwrxv")]
 
@@ -29,4 +35,25 @@ position = Vector2(1536, 0)
 [node name="Racer_Manager" type="Node2D" parent="." unique_id=1974240630]
 
 [node name="Cards" parent="." unique_id=811278244 instance=ExtResource("3_lnu2h")]
+visible = false
 position = Vector2(460, 140)
+
+[node name="CentralText" type="Label" parent="." unique_id=1573408332]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 810.0
+offset_top = 330.0
+offset_right = 1110.0
+offset_bottom = 630.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o3h6e")
+text = "GET"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_lbhrr")
+
+[connection signal="text_finished" from="CentralText" to="." method="_on_central_text_text_finished"]

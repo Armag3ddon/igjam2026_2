@@ -1,23 +1,11 @@
-[gd_scene format=3 uid="uid://crmbigdxcki5w"]
+[gd_scene format=4 uid="uid://crmbigdxcki5w"]
 
 [ext_resource type="Script" uid="uid://bmoay61ic7ys8" path="res://scripts/lane.gd" id="1_s7u0x"]
+[ext_resource type="TileSet" uid="uid://dxsstgajrilsx" path="res://misc/sky_tiles.tres" id="2_58cih"]
 
 [node name="Lane" type="Node2D" unique_id=1787335881]
 script = ExtResource("1_s7u0x")
 
-[node name="Control" type="Control" parent="." unique_id=1953512919]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="DeleteMe" type="CanvasGroup" parent="." unique_id=31823497]
-
-[node name="Left" type="ColorRect" parent="DeleteMe" unique_id=249512149]
-offset_right = 4.0
-offset_bottom = 1080.0
-
-[node name="Right" type="ColorRect" parent="DeleteMe" unique_id=1407565293]
-offset_left = 380.0
-offset_right = 384.0
-offset_bottom = 1080.0
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1260687601]
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQABAAAAAAADAAAAAQADAAAAAAACAAAAAQABAAAAAAABAAEAAQABAAEAAAABAAIAAQABAAEAAAABAAMAAQABAAEAAAABAAQAAQABAAEAAAACAAEAAQABAAEAAAACAAIAAQABAAEAAAACAAMAAQABAAEAAAACAAQAAQABAAEAAAABAAUAAQABAAEAAAACAAUAAQABAAEAAAABAAYAAQABAAEAAAACAAYAAQABAAEAAAACAAcAAQABAAEAAAABAAcAAQABAAEAAAABAAgAAQABAAMAAAACAAgAAQABAAMAAAAAAAgAAQAAAAMAAAADAAgAAQADAAMAAAAAAAcAAQAAAAEAAAAAAAYAAQAAAAEAAAAAAAUAAQAAAAEAAAAAAAQAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAEAAQAAAAEAAAADAAEAAQADAAEAAAADAAIAAQADAAEAAAADAAMAAQADAAEAAAADAAQAAQADAAEAAAADAAUAAQADAAEAAAADAAYAAQADAAEAAAADAAcAAQADAAEAAAA=")
+tile_set = ExtResource("2_58cih")

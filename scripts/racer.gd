@@ -5,11 +5,19 @@ class_name Racer
 var grid_position: Vector2 = Vector2(0,0)
 var origin_position_pixel: Vector2 = Vector2(0, 0)
 var target_position_pixel: Vector2 = Vector2(0, 0)
+var grid_size_pixel: Vector2 = Vector2(1920, 1080)
+var grid_size: Vector2 = Vector2(5, 10)
+
 var is_moving: bool = false
 var movement_speed: float = 0.5
 var movement_time: float = 0.0
-var grid_size_pixel: Vector2 = Vector2(1920, 1080)
-var grid_size: Vector2 = Vector2(5, 10)
+
+var swerve_angle: float = 0.0
+var swerve_time: float = 0.2
+var swerve_wait_time: float = 0.0
+var swerve_max_x: float = 50.0
+var swerve_max_y: float = 25.0
+var swerve_position: Vector2 = Vector2(0, 0)
 
 func setNewPosition(new_pos: Vector2):
 	grid_position = new_pos
@@ -25,12 +33,28 @@ func setNewPosition(new_pos: Vector2):
 func startMoving() -> void:
 	is_moving = true
 
+func startSwerve() -> void:
+	swerve_angle = 0.0
+	swerve_time = 0.0
+	swerve_wait_time = randf() * 0.5
+
 func _process(delta: float) -> void:
 	if is_moving:
 		if position == target_position_pixel:
 			is_moving = false
+			startSwerve()
 		else:
 			movement_time += movement_speed * delta
 			if movement_time > 1.0:
 				movement_time = 1.0
 			position = origin_position_pixel.lerp(target_position_pixel, movement_time)
+	else:
+		if swerve_wait_time > 0.0:
+			swerve_wait_time -= delta
+		else:
+			swerve_angle += delta * 360.0
+			if swerve_angle > 360.0:
+				swerve_angle -= 360.0
+			swerve_position.x = sin(deg_to_rad(swerve_angle)) * swerve_max_x
+			swerve_position.y = sin(deg_to_rad(swerve_angle * 2.0)) * swerve_max_y
+			position = target_position_pixel + swerve_position
