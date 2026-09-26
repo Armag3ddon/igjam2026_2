@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" uid="uid://t5u7stry7bk4" path="res://scripts/menu.gd" id="1_upctu"]
 [ext_resource type="Texture2D" uid="uid://eosp03n8w2e7" path="res://assets/sky_pattern.jpg" id="1_xdvgc"]
+[ext_resource type="Theme" uid="uid://q5s5iusaxso6" path="res://misc/menu_theme.tres" id="3_11y2r"]
+[ext_resource type="Texture2D" uid="uid://dijqbk4vqe8bs" path="res://assets/card.png" id="4_o0tnf"]
+[ext_resource type="FontFile" uid="uid://c7uumbqofigwf" path="res://assets/ui/classica/Classica-Bold.ttf" id="5_jmdev"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o3h6e"]
+texture = ExtResource("4_o0tnf")
+texture_margin_left = 80.0
+texture_margin_top = 100.0
+texture_margin_right = 80.0
+texture_margin_bottom = 100.0
+expand_margin_left = 100.0
+expand_margin_top = 100.0
+expand_margin_right = 100.0
+expand_margin_bottom = 100.0
+axis_stretch_vertical = 2
 
 [node name="Menu" type="Control" unique_id=102383751]
 layout_mode = 3
@@ -19,25 +34,91 @@ offset_bottom = 1080.0
 texture = ExtResource("1_xdvgc")
 stretch_mode = 1
 
-[node name="menu" type="VBoxContainer" parent="." unique_id=33956303]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=642336792]
 layout_mode = 0
-offset_left = 295.0
-offset_top = 259.0
-offset_right = 419.0
-offset_bottom = 384.0
+offset_left = 459.65387
+offset_top = -771.8583
+offset_right = 1614.887
+offset_bottom = 1158.4762
+rotation = 0.6452392
+color = Color(0.64705884, 0.6431373, 0, 0.4)
+
+[node name="menu" type="Control" parent="." unique_id=577355122]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="hbox" type="VBoxContainer" parent="menu" unique_id=33956303]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 231.0
+offset_right = 680.0
+offset_bottom = 804.0
 theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Title" type="Label" parent="menu" unique_id=685092953]
+[node name="Title" type="Label" parent="menu/hbox" unique_id=685092953]
 layout_mode = 2
-text = "BIRDVIEW"
+theme = ExtResource("3_11y2r")
+theme_override_font_sizes/font_size = 75
+text = "~ EARLY BIRD ~"
+horizontal_alignment = 1
 
-[node name="OnePlayer" type="Button" parent="menu" unique_id=1119600309]
+[node name="OnePlayer" type="Button" parent="menu/hbox" unique_id=1119600309]
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
+theme = ExtResource("3_11y2r")
 text = "Start: 1 Player"
 
-[node name="TwoPlayers" type="Button" parent="menu" unique_id=1996416476]
+[node name="TwoPlayers" type="Button" parent="menu/hbox" unique_id=1996416476]
+custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
+theme = ExtResource("3_11y2r")
 text = "Start: 2 Players"
 
-[connection signal="pressed" from="menu/OnePlayer" to="." method="_on_one_player_pressed"]
-[connection signal="pressed" from="menu/TwoPlayers" to="." method="_on_two_players_pressed"]
+[node name="Credits" type="Button" parent="menu/hbox" unique_id=149045415]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+theme = ExtResource("3_11y2r")
+text = "Credits"
+
+[node name="credits" type="Control" parent="." unique_id=1690220201]
+anchors_preset = 0
+offset_top = 1080.0
+offset_right = 40.0
+offset_bottom = 1120.0
+
+[node name="CreditsContainer" type="PanelContainer" parent="credits" unique_id=1063790638]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 326.0
+offset_right = 1741.0
+offset_bottom = 841.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_o3h6e")
+
+[node name="Label" type="Label" parent="credits/CreditsContainer" unique_id=1761859749]
+layout_mode = 2
+theme = ExtResource("3_11y2r")
+theme_override_fonts/font = ExtResource("5_jmdev")
+theme_override_font_sizes/font_size = 40
+text = "A game by:
+Judith Gastell (Art)
+raice.exe (Art)
+Fravinci (Dev)
+Felix Wagner (Dev)
+Ben Zimmermann (Music)"
+
+[node name="Back" type="Button" parent="credits" unique_id=1379836367]
+custom_minimum_size = Vector2(500, 140)
+layout_mode = 0
+offset_left = 166.0
+offset_top = 667.0
+offset_right = 666.0
+offset_bottom = 807.0
+theme = ExtResource("3_11y2r")
+text = "Back"
+
+[connection signal="pressed" from="menu/hbox/OnePlayer" to="." method="_on_one_player_pressed"]
+[connection signal="pressed" from="menu/hbox/TwoPlayers" to="." method="_on_two_players_pressed"]
+[connection signal="pressed" from="menu/hbox/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="credits/Back" to="." method="_on_back_pressed"]

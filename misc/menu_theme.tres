@@ -1,0 +1,62 @@
+[gd_resource type="Theme" format=3 uid="uid://q5s5iusaxso6"]
+
+[ext_resource type="FontFile" uid="uid://c7uumbqofigwf" path="res://assets/ui/classica/Classica-Bold.ttf" id="1_qadq4"]
+[ext_resource type="Texture2D" uid="uid://wj4jvwja6q2u" path="res://assets/ui/btn_Hover.png" id="2_efgb4"]
+[ext_resource type="Texture2D" uid="uid://cy2eanlbxkjp7" path="res://assets/ui/btn_normal.png" id="3_r4i3j"]
+[ext_resource type="Texture2D" uid="uid://chfw4seeqdslr" path="res://assets/ui/btn_pressed.png" id="4_275ii"]
+[ext_resource type="FontFile" uid="uid://82q3dauvg7w2" path="res://assets/ui/classica/Classica-Book.ttf" id="5_efgb4"]
+[ext_resource type="StyleBox" uid="uid://cfodra4fh5yvg" path="res://misc/textbox.tres" id="6_r4i3j"]
+[ext_resource type="FontFile" uid="uid://bm0yrnmuk1mh2" path="res://assets/ui/classica/Classica-BoldOblique.ttf" id="7_e72c6"]
+[ext_resource type="FontFile" uid="uid://dng7let6atho1" path="res://assets/ui/classica/Classica-BookOblique.ttf" id="8_dusnt"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qadq4"]
+texture = ExtResource("2_efgb4")
+texture_margin_left = 90.0
+texture_margin_top = 25.0
+texture_margin_right = 90.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5k11c"]
+texture = ExtResource("3_r4i3j")
+texture_margin_left = 90.0
+texture_margin_top = 25.0
+texture_margin_right = 90.0
+texture_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r4i3j"]
+texture = ExtResource("4_275ii")
+texture_margin_left = 90.0
+texture_margin_top = 25.0
+texture_margin_right = 90.0
+texture_margin_bottom = 30.0
+
+[resource]
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_qadq4")
+Button/styles/focus = SubResource("StyleBoxTexture_qadq4")
+Button/styles/hover = SubResource("StyleBoxTexture_qadq4")
+Button/styles/normal = SubResource("StyleBoxTexture_5k11c")
+Button/styles/pressed = SubResource("StyleBoxTexture_r4i3j")
+Label/colors/font_color = Color(0.22745098, 0.21960784, 0, 1)
+Label/colors/font_outline_color = Color(0.78039217, 0.76862746, 0.7490196, 0.68235296)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/outline_size = 10
+Label/constants/shadow_offset_y = 5
+Label/constants/shadow_outline_size = 5
+Label/font_sizes/font_size = 35
+Label/fonts/font = ExtResource("5_efgb4")
+Panel/styles/panel = ExtResource("6_r4i3j")
+RichTextLabel/colors/default_color = Color(0.2285153, 0.22138375, 0, 1)
+RichTextLabel/colors/font_outline_color = Color(0.78039217, 0.76862746, 0.7490196, 0.68235296)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/constants/outline_size = 10
+RichTextLabel/constants/shadow_offset_x = 3
+RichTextLabel/constants/shadow_offset_y = 5
+RichTextLabel/font_sizes/bold_font_size = 35
+RichTextLabel/font_sizes/bold_italics_font_size = 35
+RichTextLabel/font_sizes/italics_font_size = 35
+RichTextLabel/font_sizes/normal_font_size = 35
+RichTextLabel/fonts/bold_font = ExtResource("1_qadq4")
+RichTextLabel/fonts/bold_italics_font = ExtResource("7_e72c6")
+RichTextLabel/fonts/italics_font = ExtResource("8_dusnt")
+RichTextLabel/fonts/normal_font = ExtResource("5_efgb4")

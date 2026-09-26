@@ -6,13 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://qbaa4s2aie3q" path="res://assets/effects/bird_particlepng.png" id="3_pxqpc"]
 [ext_resource type="Texture2D" uid="uid://y12fb048aay5" path="res://assets/ui/arrow.png" id="5_51kxy"]
 [ext_resource type="Texture2D" uid="uid://c1acpyy0y4yrk" path="res://assets/ui/name_box.png" id="5_m1wyh"]
+[ext_resource type="Theme" uid="uid://q5s5iusaxso6" path="res://misc/menu_theme.tres" id="7_j7yu4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xer75"]
 texture = ExtResource("5_m1wyh")
-texture_margin_left = 45.0
-texture_margin_top = 10.0
-texture_margin_right = 45.0
-texture_margin_bottom = 10.0
+texture_margin_left = 55.0
+texture_margin_top = 15.0
+texture_margin_right = 55.0
+texture_margin_bottom = 15.0
 
 [node name="PlayerSelection" type="Control" unique_id=731790906]
 layout_mode = 3
@@ -120,8 +121,18 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
 [node name="Birdname" type="Label" parent="PlayerSelectorContainer/FirstPlayerSelector/PanelContainer" unique_id=1261167824]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "XXXXXXXXXXXXX"
+text = "XXXXXXXXXXXX"
 horizontal_alignment = 1
+
+[node name="KeyHint" type="RichTextLabel" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=60809374]
+layout_mode = 2
+theme = ExtResource("7_j7yu4")
+bbcode_enabled = true
+text = "[b]Player 1 keys:
+Left Arrow - Left
+Right Arrow - Right
+Up Arrow - Accept[/b]"
+fit_content = true
 
 [node name="SecondPlayerSelector" type="VBoxContainer" parent="PlayerSelectorContainer" unique_id=993088200]
 layout_mode = 2
@@ -197,12 +208,21 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
 [node name="Birdname" type="Label" parent="PlayerSelectorContainer/SecondPlayerSelector/PanelContainer" unique_id=1242091218]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "XXXXXXXXXXXXX"
+text = "XXXXXXXXXXXX"
 horizontal_alignment = 1
+
+[node name="KeyHint" type="RichTextLabel" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=881643101]
+layout_mode = 2
+theme = ExtResource("7_j7yu4")
+text = "Player 2 keys:
+A - Left
+D - Right
+W - Accept"
+fit_content = true
 
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" to="." method="_on_player_one_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneRight" to="." method="_on_player_one_right_pressed"]
-[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_two_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_one_left_pressed"]
+[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_two_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_two_right_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_one_right_pressed"]

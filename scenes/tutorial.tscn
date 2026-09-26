@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c8pqccbtw1vv6"]
+
+[ext_resource type="Texture2D" uid="uid://blg2eesesnm8r" path="res://assets/ui/text_box.png" id="1_8ho6b"]
+[ext_resource type="Script" uid="uid://l6yqv1ck4w1x" path="res://scripts/tutorial.gd" id="1_ph3nu"]
+[ext_resource type="Theme" uid="uid://q5s5iusaxso6" path="res://misc/menu_theme.tres" id="2_ph3nu"]
+
+[node name="Tutorial" type="Control" unique_id=441894242]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ph3nu")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1447905206]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_8ho6b")
+region_rect = Rect2(0, 0, 341, 359)
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1907418050]
+custom_minimum_size = Vector2(600, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer" unique_id=1594872571]
+visible = false
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+theme = ExtResource("2_ph3nu")
+text = "Hint:
+Take note of the position of your bird!"
+autowrap_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/MarginContainer" unique_id=131267418]
+custom_maximum_size = Vector2(-1, 400)
+layout_mode = 2
+theme = ExtResource("2_ph3nu")
+bbcode_enabled = true
+text = "Take note of your birds position!"
+
+[node name="Hint" type="Label" parent="NinePatchRect" unique_id=167293807]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 129.0
+offset_bottom = 94.0
+theme = ExtResource("2_ph3nu")
+theme_override_constants/outline_size = 7
+text = "Hint:"
+
+[node name="Closing Hint" type="Label" parent="NinePatchRect" unique_id=1523985123]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 411.0
+offset_right = 571.0
+offset_bottom = 455.0
+theme = ExtResource("2_ph3nu")
+theme_override_constants/outline_size = 7
+text = "Press any Button to go on"
