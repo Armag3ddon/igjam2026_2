@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://k51o25eo52s0" path="res://scenes/effects/Clouds.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://ce4nixnltsoe2" path="res://scenes/cards.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://bbedhuxl7hfem" path="res://scripts/central_text.gd" id="4_lbhrr"]
+[ext_resource type="AudioStream" uid="uid://boldp0u6yjsk8" path="res://assets/snd/Bird_Loop.mp3" id="6_u5sy4"]
+[ext_resource type="AudioStream" uid="uid://b8artfssy75b7" path="res://assets/snd/Bird_Loop_Cards.mp3" id="7_gee14"]
 
 [sub_resource type="Theme" id="Theme_o3h6e"]
 Label/colors/font_color = Color(0.9076238, 0.929141, 0.7962742, 1)
@@ -58,5 +60,16 @@ text = "GET"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_lbhrr")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=716045523]
+stream = ExtResource("6_u5sy4")
+autoplay = true
+parameters/looping = true
+
+[node name="BackgroundMusic_Cards" type="AudioStreamPlayer" parent="." unique_id=855933682]
+stream = ExtResource("7_gee14")
+volume_db = -80.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="text_finished" from="CentralText" to="." method="_on_central_text_text_finished"]

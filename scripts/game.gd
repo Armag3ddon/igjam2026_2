@@ -19,7 +19,9 @@ enum game_states {
 	RACE,
 	REPOSITION,
 	DANGER,
-	DRAW
+	DRAW,
+	DANGERFLY,
+	UPDOWN
 }
 var game_state: int
 
@@ -29,6 +31,9 @@ var danger_wait: float = 3.0
 
 var reposition_time: float = 0.0
 var reposition_wait: float = 2.0
+
+var updown_time: float = 0.0
+var updown_wait: float = 2.0
 
 enum cards {
 	TWOLEFT,
@@ -87,10 +92,27 @@ func flashDanger() -> void:
 		i += 1
 
 func spawnDangers() -> void:
-	pass
+	var i: int = 0
+	for is_dangerous: bool in dangers:
+		lanes[i].removeWarning()
+		if is_dangerous:
+			lanes[i].spawnEnemy()
+		i += 1
+	reposition_time = 0.0
+	game_state = game_states.DANGERFLY
+
+func enemyDown() -> void:
+	if game_state != game_states.DANGERFLY:
+		return
+	game_state = game_states.UPDOWN
+	updown_time = 0.0
+	for racer: Racer in racers:
+		racer.processAdvance()
 
 func drawCards() -> void:
 	game_state = game_states.DRAW
+	$BackgroundMusic.volume_db = -80.0
+	$BackgroundMusic_Cards.volume_db = 0.0
 	# Strategize for bots
 	for i: int in 5:
 		var current_lane: int = racers[i].grid_position.x
@@ -122,6 +144,8 @@ func getWrappedLane(lane: int) -> int:
 func drawDone():
 	reposition_time = 0.0
 	game_state = game_states.REPOSITION
+	$BackgroundMusic.volume_db = 0.0
+	$BackgroundMusic_Cards.volume_db = -80.0
 
 func _process(delta: float) -> void:
 	if game_state == game_states.DANGER:
@@ -132,3 +156,20 @@ func _process(delta: float) -> void:
 		reposition_time += delta
 		if reposition_time >= reposition_wait:
 			spawnDangers()
+	if game_state == game_states.UPDOWN:
+		updown_time += delta
+		if updown_time >= updown_wait:
+			drawDanger()
+	if game_state == game_states.DRAW:
+		debug_time += delta
+		if debug_time >= debug_wait:
+			debugRandomMove()
+
+var debug_time: float = 0.0
+var debug_wait: float = 1.0
+
+func debugRandomMove() -> void:
+	for i: int in 5:
+		processPlayerDraw(i, roundi(randf() * 4.0 - 2.0))
+	drawDone()
+	debug_time = 0.0

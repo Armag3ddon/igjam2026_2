@@ -22,6 +22,8 @@ var swerve_max_x: float = 50.0
 var swerve_max_y: float = 25.0
 var swerve_position: Vector2 = Vector2(0, 0)
 
+var was_hit: bool = false
+
 func setGraphics(new_graphics: PackedScene) -> void:
 	Graphics = new_graphics
 	var child = new_graphics.instantiate()
@@ -46,6 +48,17 @@ func startSwerve() -> void:
 	swerve_angle = 0.0
 	swerve_time = 0.0
 	swerve_wait_time = randf() * 0.5
+
+func registerHit() -> void:
+	was_hit = true
+
+func processAdvance() -> void:
+	if was_hit:
+		if grid_position.y < grid_size.y:
+			setNewPosition(Vector2(grid_position.x, grid_position.y + 1))
+	else:
+		setNewPosition(Vector2(grid_position.x, grid_position.y - 1))
+	was_hit = false
 
 func _process(delta: float) -> void:
 	if is_moving:
