@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://be3vmrt8wlbhv"]
+
+[ext_resource type="Texture2D" uid="uid://blg2eesesnm8r" path="res://assets/ui/text_box.png" id="1_cxr5x"]
+[ext_resource type="Texture2D" uid="uid://c1acpyy0y4yrk" path="res://assets/ui/name_box.png" id="2_q8fyp"]
+[ext_resource type="Texture2D" uid="uid://dt5foqmmuru1a" path="res://assets/portraits/portrait_crow.png" id="3_q8fyp"]
+
+[node name="BirdTextBox" type="Node2D" unique_id=550207493]
+
+[node name="TextBox" type="TextureRect" parent="." unique_id=456083373]
+offset_left = 606.00006
+offset_top = 680.0
+offset_right = 947.00006
+offset_bottom = 1039.0
+rotation = 0.0035450745
+texture = ExtResource("1_cxr5x")
+
+[node name="NameCard" type="TextureRect" parent="." unique_id=1189546423]
+offset_left = 579.0
+offset_top = 514.00006
+offset_right = 919.99994
+offset_bottom = 873.00006
+rotation = 0.0035450745
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_q8fyp")
+
+[node name="Character" type="TextureRect" parent="." unique_id=1581445009]
+offset_left = 28.0
+offset_top = 508.0
+offset_right = 540.0
+offset_bottom = 1020.0
+rotation = 0.0035450745
+scale = Vector2(1.11, 1.11)
+texture = ExtResource("3_q8fyp")
+
+[node name="Label" type="Label" parent="." unique_id=430908675]
+offset_left = 650.0
+offset_top = 811.0
+offset_right = 757.905
+offset_bottom = 842.765
+scale = Vector2(4.24, 4.24)
+text = "Pathetic!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=703000999]
+offset_left = 3405.9998
+offset_top = 4249.6396
+offset_right = 3522.3599
+offset_bottom = 4281.405
+scale = Vector2(4.24, 4.24)
+text = "Crow"
+horizontal_alignment = 1
