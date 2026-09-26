@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var racer_scene: PackedScene = preload("res://scenes/Racer.tscn")
 @onready var danger_scene: PackedScene = preload("res://scenes/effects/LaneDanger.tscn")
+@onready var card_drawer_scene: PackedScene = preload("res://scenes/cards.tscn")
 
 var racers: Array[Racer] = []
 var racers_strategy: Array[Array] = [[], [], [], [], []]
@@ -42,6 +43,14 @@ enum cards {
 	RIGHT,
 	TWORIGHT
 }
+
+@onready var standard_cards: Array[Texture2D] = [
+	load("res://assets/ui/card_2l.png"),
+	load("res://assets/ui/card_1l.png"),
+	load("res://assets/ui/card_0.png"),
+	load("res://assets/ui/card_1r.png"),
+	load("res://assets/ui/card_2r.png")
+]
 
 func _ready() -> void:
 	for i: int in racer_count:
@@ -127,6 +136,15 @@ func drawCards() -> void:
 			racers_strategy[i].append(cards.RIGHT)
 		if not dangers[getWrappedLane(current_lane + 2)]:
 			racers_strategy[i].append(cards.TWORIGHT)
+	var card_drawer: Control = card_drawer_scene.instantiate()
+	var standard_cards: Array[int] = [cards.TWOLEFT, cards.LEFT, cards.STAY, cards.RIGHT, cards.TWORIGHT]
+	add_child(card_drawer)
+	card_drawer.setupCards(standard_cards)
+	card_drawer.timesToMove = roundi(randf() * 4.0) + 1
+	card_drawer.init()
+
+func getCardAsset(card_type: int) -> Texture2D:
+	return standard_cards[card_type]
 
 func processPlayerDraw(player: int, change: int):
 	var current_position: Vector2 = racers[player].grid_position
@@ -169,6 +187,7 @@ var debug_time: float = 0.0
 var debug_wait: float = 1.0
 
 func debugRandomMove() -> void:
+	return
 	for i: int in 5:
 		processPlayerDraw(i, roundi(randf() * 4.0 - 2.0))
 	drawDone()
