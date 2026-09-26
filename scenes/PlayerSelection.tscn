@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cnyic2vdun0sk" path="res://scripts/player_selection.gd" id="1_5iuoi"]
 [ext_resource type="Texture2D" uid="uid://eosp03n8w2e7" path="res://assets/sky_pattern.jpg" id="1_towsm"]
-[ext_resource type="Texture2D" uid="uid://vo5glhoochsb" path="res://assets/portraits/crow_portrait.jpg" id="3_5iuoi"]
 [ext_resource type="Texture2D" uid="uid://qbaa4s2aie3q" path="res://assets/effects/bird_particlepng.png" id="3_pxqpc"]
+[ext_resource type="Texture2D" uid="uid://4ojcwf02ytop" path="res://assets/ui/portrait_crow.png" id="4_4qubk"]
 [ext_resource type="Texture2D" uid="uid://y12fb048aay5" path="res://assets/ui/arrow.png" id="5_51kxy"]
+[ext_resource type="Texture2D" uid="uid://cy38gcuwwb5ti" path="res://assets/ui/character_frame.png" id="5_ety38"]
 [ext_resource type="Texture2D" uid="uid://c1acpyy0y4yrk" path="res://assets/ui/name_box.png" id="5_m1wyh"]
 [ext_resource type="Theme" uid="uid://q5s5iusaxso6" path="res://misc/menu_theme.tres" id="7_j7yu4"]
+[ext_resource type="Texture2D" uid="uid://dqtf0s0kugrc7" path="res://assets/ui/portrait_owl.png" id="9_ocfu5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xer75"]
 texture = ExtResource("5_m1wyh")
@@ -48,6 +50,7 @@ theme_override_constants/separation = 100
 alignment = 1
 
 [node name="FirstPlayerSelector" type="VBoxContainer" parent="PlayerSelectorContainer" unique_id=2083731210]
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 alignment = 1
 
@@ -66,9 +69,40 @@ initial_velocity_max = 297.03
 angular_velocity_min = 71.29
 angular_velocity_max = 156.83
 
-[node name="Portrait" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1344748027]
+[node name="Portrait Holder" type="Control" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1622157022]
+custom_minimum_size = Vector2(382, 387)
 layout_mode = 2
-texture = ExtResource("3_5iuoi")
+
+[node name="Portrait" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector/Portrait Holder" unique_id=1344748027]
+custom_maximum_size = Vector2(382, 387)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -327.5
+offset_right = 249.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_4qubk")
+
+[node name="Border" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector/Portrait Holder" unique_id=2079237230]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -387.0
+offset_right = 191.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_ety38")
 
 [node name="Buttons" type="HBoxContainer" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1730572103]
 layout_mode = 2
@@ -78,6 +112,7 @@ alignment = 1
 [node name="PlayerOneLeft" type="Button" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=1527381424]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+flat = true
 
 [node name="TextureRect" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" unique_id=2129982486]
 layout_mode = 1
@@ -98,6 +133,7 @@ flip_h = true
 [node name="PlayerOneRight" type="Button" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=774351829]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+flat = true
 
 [node name="TextureRect" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneRight" unique_id=1292060297]
 layout_mode = 1
@@ -133,8 +169,10 @@ Left Arrow - Left
 Right Arrow - Right
 Up Arrow - Accept[/b]"
 fit_content = true
+horizontal_alignment = 1
 
 [node name="SecondPlayerSelector" type="VBoxContainer" parent="PlayerSelectorContainer" unique_id=993088200]
+custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
 alignment = 1
 
@@ -153,9 +191,40 @@ initial_velocity_max = 297.03
 angular_velocity_min = 71.29
 angular_velocity_max = 156.83
 
-[node name="Portrait" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=1434549895]
+[node name="Portrait Holder" type="Control" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=1776962735]
+custom_minimum_size = Vector2(382, 387)
 layout_mode = 2
-texture = ExtResource("3_5iuoi")
+
+[node name="Portrait" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector/Portrait Holder" unique_id=1153523121]
+custom_maximum_size = Vector2(382, 387)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -133.0
+offset_top = -327.5
+offset_right = 249.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("9_ocfu5")
+
+[node name="Border" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector/Portrait Holder" unique_id=1828049714]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = -387.0
+offset_right = 191.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_ety38")
 
 [node name="Buttons" type="HBoxContainer" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=675562770]
 layout_mode = 2
@@ -165,6 +234,7 @@ alignment = 1
 [node name="PlayerTwoLeft" type="Button" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=926039573]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+flat = true
 
 [node name="TextureRect" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" unique_id=2131065350]
 layout_mode = 1
@@ -185,6 +255,7 @@ flip_h = true
 [node name="PlayerTwoRight" type="Button" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=514101750]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+flat = true
 
 [node name="TextureRect" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" unique_id=1479990156]
 layout_mode = 1
@@ -214,15 +285,17 @@ horizontal_alignment = 1
 [node name="KeyHint" type="RichTextLabel" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=881643101]
 layout_mode = 2
 theme = ExtResource("7_j7yu4")
-text = "Player 2 keys:
+bbcode_enabled = true
+text = "[b]Player 2 keys:
 A - Left
 D - Right
-W - Accept"
+W - Accept[/b]"
 fit_content = true
+horizontal_alignment = 1
 
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" to="." method="_on_player_one_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneRight" to="." method="_on_player_one_right_pressed"]
-[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_one_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_two_left_pressed"]
-[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_two_right_pressed"]
+[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_one_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_one_right_pressed"]
+[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_two_right_pressed"]

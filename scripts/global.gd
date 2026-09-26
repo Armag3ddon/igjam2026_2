@@ -43,15 +43,15 @@ func getBirdPackedScene(bird: int) -> PackedScene:
 
 func getBirdPortrait(bird: int) -> String:
 	if bird == BIRDS.CROW:
-		return "res://assets/portraits/crow_portrait.jpg"
+		return "res://assets/portraits/portrait_crow.png"
 	if bird == BIRDS.GOOSE:
-		return "res://assets/portraits/goose_portrait.jpg"
+		return "res://assets/portraits/portrait_goose.png"
 	if bird == BIRDS.OWL:
-		return "res://assets/portraits/owl_portrait.jpg"
+		return "res://assets/portraits/portrait_owl.png"
 	if bird == BIRDS.PARROT:
-		return "res://assets/portraits/parrot_portrait.jpg"
+		return "res://assets/portraits/portrait_parrot.png"
 	if bird == BIRDS.PIGEON:
-		return "res://assets/portraits/pigeon_portrait.jpg"
+		return "res://assets/portraits/portrait_pigeon.png"
 	return ""
 
 func getBirdNames(bird: int) -> String:
