@@ -4,6 +4,7 @@ extends Node2D
 @onready var danger_scene: PackedScene = preload("res://scenes/effects/LaneDanger.tscn")
 
 var racers: Array[Racer] = []
+var racers_strategy: Array[Array] = [[], [], [], [], []]
 
 var racer_count: int = 5
 
@@ -25,6 +26,17 @@ var game_state: int
 var dangers: Array[bool] = [false, false, false, false, false]
 var danger_time: float = 0.0
 var danger_wait: float = 3.0
+
+var reposition_time: float = 0.0
+var reposition_wait: float = 2.0
+
+enum cards {
+	TWOLEFT,
+	LEFT,
+	STAY,
+	RIGHT,
+	TWORIGHT
+}
 
 func _ready() -> void:
 	for i: int in racer_count:
@@ -74,16 +86,49 @@ func flashDanger() -> void:
 			lanes[i].addWarning(warning)
 		i += 1
 
+func spawnDangers() -> void:
+	pass
+
 func drawCards() -> void:
 	game_state = game_states.DRAW
+	# Strategize for bots
+	for i: int in 5:
+		var current_lane: int = racers[i].grid_position.x
+		racers_strategy[i] = []
+		if not dangers[getWrappedLane(current_lane - 2)]:
+			racers_strategy[i].append(cards.TWOLEFT)
+		if not dangers[getWrappedLane(current_lane - 1)]:
+			racers_strategy[i].append(cards.LEFT)
+		if not dangers[getWrappedLane(current_lane)]:
+			racers_strategy[i].append(cards.STAY)
+		if not dangers[getWrappedLane(current_lane + 1)]:
+			racers_strategy[i].append(cards.RIGHT)
+		if not dangers[getWrappedLane(current_lane + 2)]:
+			racers_strategy[i].append(cards.TWORIGHT)
 
 func processPlayerDraw(player: int, change: int):
 	var current_position: Vector2 = racers[player].grid_position
 	current_position.x += change
+	current_position.x = getWrappedLane(current_position.x)
 	racers[player].setNewPosition(current_position)
+
+func getWrappedLane(lane: int) -> int:
+	if lane > 4:
+		return lane - 5
+	if lane < 0:
+		return lane + 5
+	return lane
+
+func drawDone():
+	reposition_time = 0.0
+	game_state = game_states.REPOSITION
 
 func _process(delta: float) -> void:
 	if game_state == game_states.DANGER:
 		danger_time += delta
 		if danger_time >= danger_wait:
 			drawCards()
+	if game_state == game_states.REPOSITION:
+		reposition_time += delta
+		if reposition_time >= reposition_wait:
+			spawnDangers()
