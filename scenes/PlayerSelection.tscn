@@ -4,6 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://eosp03n8w2e7" path="res://assets/sky_pattern.jpg" id="1_towsm"]
 [ext_resource type="Texture2D" uid="uid://vo5glhoochsb" path="res://assets/portraits/crow_portrait.jpg" id="3_5iuoi"]
 [ext_resource type="Texture2D" uid="uid://qbaa4s2aie3q" path="res://assets/effects/bird_particlepng.png" id="3_pxqpc"]
+[ext_resource type="Texture2D" uid="uid://y12fb048aay5" path="res://assets/ui/arrow.png" id="5_51kxy"]
+[ext_resource type="Texture2D" uid="uid://c1acpyy0y4yrk" path="res://assets/ui/name_box.png" id="5_m1wyh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xer75"]
+texture = ExtResource("5_m1wyh")
+texture_margin_left = 45.0
+texture_margin_top = 10.0
+texture_margin_right = 45.0
+texture_margin_bottom = 10.0
 
 [node name="PlayerSelection" type="Control" unique_id=731790906]
 layout_mode = 3
@@ -34,6 +43,7 @@ offset_right = 128.0
 offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 100
 alignment = 1
 
 [node name="FirstPlayerSelector" type="VBoxContainer" parent="PlayerSelectorContainer" unique_id=2083731210]
@@ -65,21 +75,55 @@ theme_override_constants/separation = 100
 alignment = 1
 
 [node name="PlayerOneLeft" type="Button" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=1527381424]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "<-"
+
+[node name="TextureRect" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" unique_id=2129982486]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -71.0
+offset_right = 68.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_51kxy")
+flip_h = true
 
 [node name="PlayerOneRight" type="Button" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=774351829]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "->"
 
-[node name="Birdname" type="Label" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1261167824]
+[node name="TextureRect" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneRight" unique_id=1292060297]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -71.0
+offset_right = 68.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_51kxy")
+
+[node name="PanelContainer" type="PanelContainer" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=111947123]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
+
+[node name="Birdname" type="Label" parent="PlayerSelectorContainer/FirstPlayerSelector/PanelContainer" unique_id=1261167824]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "DEATH Crow"
+text = "XXXXXXXXXXXXX"
 horizontal_alignment = 1
 
 [node name="SecondPlayerSelector" type="VBoxContainer" parent="PlayerSelectorContainer" unique_id=993088200]
-visible = false
 layout_mode = 2
 alignment = 1
 
@@ -108,17 +152,52 @@ theme_override_constants/separation = 100
 alignment = 1
 
 [node name="PlayerTwoLeft" type="Button" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=926039573]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "<-"
+
+[node name="TextureRect" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" unique_id=2131065350]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -71.0
+offset_right = 68.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_51kxy")
+flip_h = true
 
 [node name="PlayerTwoRight" type="Button" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=514101750]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-text = "->"
 
-[node name="Birdname" type="Label" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=1242091218]
+[node name="TextureRect" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" unique_id=1479990156]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -71.0
+offset_right = 68.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_51kxy")
+
+[node name="PanelContainer" type="PanelContainer" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=170305795]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
+
+[node name="Birdname" type="Label" parent="PlayerSelectorContainer/SecondPlayerSelector/PanelContainer" unique_id=1242091218]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "DEATH Crow"
+text = "XXXXXXXXXXXXX"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" to="." method="_on_player_one_left_pressed"]

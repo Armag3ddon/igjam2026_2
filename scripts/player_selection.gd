@@ -3,14 +3,14 @@ extends Control
 var player_one_selection: int
 var player_one_done: bool = false
 @onready var player_one_portrait: TextureRect = $PlayerSelectorContainer/FirstPlayerSelector/Portrait
-@onready var player_one_name: Label = $PlayerSelectorContainer/FirstPlayerSelector/Birdname
+@onready var player_one_name: Label = $PlayerSelectorContainer/FirstPlayerSelector/PanelContainer/Birdname
 @onready var player_one_emitter: CPUParticles2D = $PlayerSelectorContainer/FirstPlayerSelector/FirstPlayerEmitter
 
 var player_two_selection: int
 var player_two_done: bool = false
 @onready var player_two: VBoxContainer = $PlayerSelectorContainer/SecondPlayerSelector
 @onready var player_two_portrait: TextureRect = $PlayerSelectorContainer/SecondPlayerSelector/Portrait
-@onready var player_two_name: Label = $PlayerSelectorContainer/SecondPlayerSelector/Birdname
+@onready var player_two_name: Label = $PlayerSelectorContainer/SecondPlayerSelector/PanelContainer/Birdname
 @onready var player_two_emitter: CPUParticles2D = $PlayerSelectorContainer/SecondPlayerSelector/SecondPlayerEmitter
 
 var wait_time: float = 1.0
