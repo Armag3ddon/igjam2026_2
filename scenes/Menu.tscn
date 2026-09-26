@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://d6mms4soqkit"]
+
+[ext_resource type="Script" uid="uid://t5u7stry7bk4" path="res://scripts/menu.gd" id="1_upctu"]
+[ext_resource type="Texture2D" uid="uid://eosp03n8w2e7" path="res://assets/sky_pattern.jpg" id="1_xdvgc"]
+
+[node name="Menu" type="Control" unique_id=102383751]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_upctu")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1945999366]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_xdvgc")
+stretch_mode = 1
+
+[node name="menu" type="VBoxContainer" parent="." unique_id=33956303]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 259.0
+offset_right = 419.0
+offset_bottom = 384.0
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="menu" unique_id=685092953]
+layout_mode = 2
+text = "BIRDVIEW"
+
+[node name="OnePlayer" type="Button" parent="menu" unique_id=1119600309]
+layout_mode = 2
+text = "Start: 1 Player"
+
+[node name="TwoPlayers" type="Button" parent="menu" unique_id=1996416476]
+layout_mode = 2
+text = "Start: 2 Players"
+
+[connection signal="pressed" from="menu/OnePlayer" to="." method="_on_one_player_pressed"]
+[connection signal="pressed" from="menu/TwoPlayers" to="." method="_on_two_players_pressed"]

@@ -1,5 +1,10 @@
 extends Node
 
+var player_count: int = 1
+
+var player_one_bird: int
+var player_two_bird: int
+
 enum BIRDS {
 	CROW,
 	GOOSE,
@@ -7,9 +12,6 @@ enum BIRDS {
 	PARROT,
 	PIGEON
 }
-
-func Hi() -> void:
-	print("hi!")
 
 func getBirdPackedScene(bird: int) -> PackedScene:
 	if bird == BIRDS.CROW:

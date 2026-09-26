@@ -52,6 +52,7 @@ func _on_central_text_text_finished() -> void:
 func drawDanger() -> void:
 	game_state = game_states.DANGER
 	dangers = [false, false, false, false, false]
+	danger_time = 0.0
 	var danger_count: int = roundi(randf() * 3.0) + 1
 	for i: int in danger_count:
 		var rnd: int = roundi(randf() * 4.0)
@@ -68,6 +69,11 @@ func flashDanger() -> void:
 			lanes[i].addWarning(warning)
 		i += 1
 
+func drawCards() -> void:
+	game_state = game_states.DRAW
+
 func _process(delta: float) -> void:
 	if game_state == game_states.DANGER:
-		pass
+		danger_time += delta
+		if danger_time >= danger_wait:
+			drawCards()
