@@ -7,7 +7,6 @@ var cards: Array[Node];
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cards = $Cardhandler.get_children()
-	print(cards.size())
 	_cardsInit()
 	_MoveCards()
 
@@ -31,9 +30,7 @@ func _MoveCards()-> void:
 		var secondSelectedCard = cards[secondCardIndex];
 		var firstCardOriginalTransform = firstSelectedCard.position
 		var secondCardOriginalTransform = secondSelectedCard.position
-		print ("Nr 1")
 		switchCards(firstSelectedCard,firstCardOriginalTransform,secondCardOriginalTransform,cardJumpHeight,cardSwitchSpeed)
-		print ("Nr 2")
 		await switchCards(secondSelectedCard,secondCardOriginalTransform,firstCardOriginalTransform,-cardJumpHeight,cardSwitchSpeed)
 		#await switchCards(secondSelectedCard,firstCardOriginalTransform,secondCardOriginalTransform,-650,cardSwitchSpeed)
 		
