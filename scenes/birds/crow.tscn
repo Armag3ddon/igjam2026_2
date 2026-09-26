@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dh7u63iwo25ie"]
 
-[ext_resource type="Script" uid="uid://c3v6dbp0cl1qi" path="res://scripts/birds_collision.gd" id="1_ba7fv"]
 [ext_resource type="Texture2D" uid="uid://pxagqlkpjhtv" path="res://assets/crow_spritesheet.png" id="1_bfmg8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ba7fv"]
@@ -113,7 +112,6 @@ animations = [{
 radius = 50.0
 
 [node name="Crow" type="Node2D" unique_id=237686385]
-script = ExtResource("1_ba7fv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=548597333]
 sprite_frames = SubResource("SpriteFrames_o3h6e")
