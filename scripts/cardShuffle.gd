@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 var cards: Array[Node];
@@ -7,7 +7,7 @@ var areCardsShuffled: bool = false:
 		areCardsShuffled = value
 	get():
 		return areCardsShuffled
-		
+
 @export var timesToMove: int = 2;
 @export var cardSwitchSpeed: float = 1.5;
 @export var cardJumpHeight: float = 650;
@@ -42,7 +42,7 @@ func _MoveCards()-> void:
 		
 	print("Shuffle done")
 	areCardsShuffled = true
-func switchCards(cardToMove: Node2D,start: Vector2, target: Vector2, height: float, duration: float)-> void:
+func switchCards(cardToMove: Control,start: Vector2, target: Vector2, height: float, duration: float)-> void:
 	var tween = create_tween()
 	tween.tween_method(
 		func(t: float):

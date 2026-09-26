@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckopddruqvhca" path="res://scripts/cardShuffle.gd" id="1_02cqd"]
 [ext_resource type="PackedScene" uid="uid://4dntv8t30rvj" path="res://scenes/Card.tscn" id="1_cqxa1"]
+[ext_resource type="Theme" uid="uid://q5s5iusaxso6" path="res://misc/menu_theme.tres" id="2_vt1ej"]
 [ext_resource type="Script" uid="uid://u3188gxd5ybq" path="res://scripts/birb_portrait_handler.gd" id="3_o7x4b"]
 [ext_resource type="Texture2D" uid="uid://f25ibvpjb1o6" path="res://assets/portraits/owl_portrait.jpg" id="3_ucp30"]
 [ext_resource type="Texture2D" uid="uid://dk4i5pbkxj1gx" path="res://assets/portraits/goose_portrait.jpg" id="4_o7x4b"]
@@ -9,23 +10,57 @@
 [ext_resource type="Texture2D" uid="uid://vo5glhoochsb" path="res://assets/portraits/crow_portrait.jpg" id="6_vt1ej"]
 [ext_resource type="Texture2D" uid="uid://ck11anvmfyk5c" path="res://assets/portraits/pigeon_portrait.jpg" id="7_o7x4b"]
 
-[node name="Cards" type="Node2D" unique_id=811278244]
+[node name="Cards" type="Control" unique_id=1814429154]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_02cqd")
 timesToMove = 5
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=881024166]
-offset_right = 1000.0
-offset_bottom = 800.0
-color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+[node name="Background" type="ColorRect" parent="." unique_id=881024166]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18431373, 0.18431373, 0.18431373, 0.50980395)
 
-[node name="Cardhandler" type="Node2D" parent="." unique_id=569712973]
-position = Vector2(213, 374)
+[node name="GetReady" type="RichTextLabel" parent="." unique_id=1182702324]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 860.0
+offset_top = 50.0
+offset_right = 973.0
+offset_bottom = 94.0
+grow_horizontal = 2
+theme = ExtResource("2_vt1ej")
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/bold_font_size = 75
+bbcode_enabled = true
+text = "[pulse freq=4.5 color=#ffffff40 ease=-2.0][b]GET READY FOR CARD DRAW[/b][/pulse]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Cardhandler" type="Control" parent="." unique_id=1639969197]
+anchors_preset = 0
+offset_left = 213.0
+offset_top = 374.0
+offset_right = 213.0
+offset_bottom = 374.0
 scale = Vector2(0.7, 0.7)
 
 [node name="Card1" parent="Cardhandler" unique_id=1079423381 instance=ExtResource("1_cqxa1")]
+layout_mode = 0
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card1" unique_id=592856656]
 visible = false
+layout_mode = 0
 offset_left = -74.28571
 offset_top = -351.4286
 offset_right = 425.7143
@@ -34,10 +69,13 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_uvf2a")
 
 [node name="Card2" parent="Cardhandler" unique_id=1162718171 instance=ExtResource("1_cqxa1")]
-position = Vector2(500, 0)
+layout_mode = 0
+offset_left = 500.0
+offset_right = 500.0
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card2" unique_id=1460829638]
 visible = false
+layout_mode = 0
 offset_left = -74.28571
 offset_top = -351.4286
 offset_right = 425.7143
@@ -46,10 +84,13 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_uvf2a")
 
 [node name="Card3" parent="Cardhandler" unique_id=1596882217 instance=ExtResource("1_cqxa1")]
-position = Vector2(1000, 0)
+layout_mode = 0
+offset_left = 1000.0
+offset_right = 1000.0
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card3" unique_id=1347374637]
 visible = false
+layout_mode = 0
 offset_left = -74.28571
 offset_top = -351.4286
 offset_right = 425.7143
@@ -58,10 +99,13 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_uvf2a")
 
 [node name="Card4" parent="Cardhandler" unique_id=1096476212 instance=ExtResource("1_cqxa1")]
-position = Vector2(1500, 0)
+layout_mode = 0
+offset_left = 1500.0
+offset_right = 1500.0
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card4" unique_id=1378163408]
 visible = false
+layout_mode = 0
 offset_left = -74.28571
 offset_top = -351.4286
 offset_right = 425.7143
@@ -70,10 +114,13 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_uvf2a")
 
 [node name="Card5" parent="Cardhandler" unique_id=1254681985 instance=ExtResource("1_cqxa1")]
-position = Vector2(2000, 0)
+layout_mode = 0
+offset_left = 2000.0
+offset_right = 2000.0
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card5" unique_id=323786138]
 visible = false
+layout_mode = 0
 offset_left = -74.28571
 offset_top = -351.4286
 offset_right = 425.7143
