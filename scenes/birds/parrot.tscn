@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://cgr7373h1bti3"]
+
+[ext_resource type="Texture2D" uid="uid://borejhr2is7eu" path="res://assets/parrot_spritesheet.png" id="1_o6els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78axp"]
+atlas = ExtResource("1_o6els")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahppe"]
+atlas = ExtResource("1_o6els")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f6hl"]
+atlas = ExtResource("1_o6els")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra4me"]
+atlas = ExtResource("1_o6els")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqonc"]
+atlas = ExtResource("1_o6els")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fk60m"]
+atlas = ExtResource("1_o6els")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24fa1"]
+atlas = ExtResource("1_o6els")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf65y"]
+atlas = ExtResource("1_o6els")
+region = Rect2(3584, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2hl5"]
+atlas = ExtResource("1_o6els")
+region = Rect2(4096, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjdtj"]
+atlas = ExtResource("1_o6els")
+region = Rect2(4608, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rmss"]
+atlas = ExtResource("1_o6els")
+region = Rect2(5120, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4edf2"]
+atlas = ExtResource("1_o6els")
+region = Rect2(5632, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ujon"]
+atlas = ExtResource("1_o6els")
+region = Rect2(6144, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v71r"]
+atlas = ExtResource("1_o6els")
+region = Rect2(6656, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wh2wl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78axp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahppe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f6hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4me")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqonc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fk60m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24fa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf65y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2hl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjdtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rmss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4edf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ujon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v71r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 25.0
+}]
+
+[node name="Crow" type="Node2D" unique_id=237686385]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=548597333]
+sprite_frames = SubResource("SpriteFrames_wh2wl")
+autoplay = "default"
+frame_progress = 0.8050583

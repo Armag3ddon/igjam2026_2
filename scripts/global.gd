@@ -5,6 +5,16 @@ var player_count: int = 1
 var player_one_bird: int
 var player_two_bird: int
 
+var is_player_human: Array[bool] = [false, false, false, false, false]
+
+var bird_bots: Array[Array] = [
+	[2.0, 50.0], # Crow: balanced
+	[1.5, 25.0], # Goose: quicker but worse
+	[3.0, 100.0], # Owl: slow but perfect
+	[2.5, 75.0], # Parrot: slower but better
+	[0.5, 0.0] # Pigeon: quick but random
+]
+
 enum BIRDS {
 	CROW,
 	GOOSE,
@@ -13,9 +23,22 @@ enum BIRDS {
 	PIGEON
 }
 
+enum BIRDBOT {
+	SPEED,
+	ACCURACY
+}
+
 func getBirdPackedScene(bird: int) -> PackedScene:
 	if bird == BIRDS.CROW:
 		return preload("res://scenes/birds/crow.tscn")
+	if bird == BIRDS.GOOSE:
+		return preload("res://scenes/birds/goose.tscn")
+	if bird == BIRDS.OWL:
+		return preload("res://scenes/birds/owl.tscn")
+	if bird == BIRDS.PARROT:
+		return preload("res://scenes/birds/parrot.tscn")
+	if bird == BIRDS.PIGEON:
+		return preload("res://scenes/birds/pigeon.tscn")
 	return
 
 func getBirdPortrait(bird: int) -> String:
