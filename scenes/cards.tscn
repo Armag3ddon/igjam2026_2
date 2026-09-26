@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://ckopddruqvhca" path="res://scripts/cardShuffle.gd" id="1_02cqd"]
 [ext_resource type="PackedScene" uid="uid://4dntv8t30rvj" path="res://scenes/Card.tscn" id="1_cqxa1"]
+[ext_resource type="Script" uid="uid://u3188gxd5ybq" path="res://scripts/birb_portrait_handler.gd" id="3_o7x4b"]
+[ext_resource type="Texture2D" uid="uid://f25ibvpjb1o6" path="res://assets/portraits/owl_portrait.jpg" id="3_ucp30"]
+[ext_resource type="Texture2D" uid="uid://dk4i5pbkxj1gx" path="res://assets/portraits/goose_portrait.jpg" id="4_o7x4b"]
+[ext_resource type="Texture2D" uid="uid://ch8e4r7pm73nt" path="res://assets/portraits/parrot_portrait.jpg" id="5_uvf2a"]
+[ext_resource type="Texture2D" uid="uid://vo5glhoochsb" path="res://assets/portraits/crow_portrait.jpg" id="6_vt1ej"]
+[ext_resource type="Texture2D" uid="uid://ck11anvmfyk5c" path="res://assets/portraits/pigeon_portrait.jpg" id="7_o7x4b"]
 
 [node name="Cards" type="Node2D" unique_id=811278244]
 script = ExtResource("1_02cqd")
+timesToMove = 5
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=881024166]
 offset_right = 1000.0
@@ -12,19 +19,343 @@ offset_bottom = 800.0
 color = Color(0.18359044, 0.18359044, 0.18359044, 1)
 
 [node name="Cardhandler" type="Node2D" parent="." unique_id=569712973]
-position = Vector2(-9, 374)
-scale = Vector2(0.5, 0.5)
+position = Vector2(213, 374)
+scale = Vector2(0.7, 0.7)
 
 [node name="Card1" parent="Cardhandler" unique_id=1079423381 instance=ExtResource("1_cqxa1")]
 
+[node name="Portrait" type="TextureRect" parent="Cardhandler/Card1" unique_id=592856656]
+visible = false
+offset_left = -74.28571
+offset_top = -351.4286
+offset_right = 425.7143
+offset_bottom = 148.57141
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_uvf2a")
+
 [node name="Card2" parent="Cardhandler" unique_id=1162718171 instance=ExtResource("1_cqxa1")]
-position = Vector2(518, 0)
+position = Vector2(500, 0)
+
+[node name="Portrait" type="TextureRect" parent="Cardhandler/Card2" unique_id=1460829638]
+visible = false
+offset_left = -74.28571
+offset_top = -351.4286
+offset_right = 425.7143
+offset_bottom = 148.57141
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_uvf2a")
 
 [node name="Card3" parent="Cardhandler" unique_id=1596882217 instance=ExtResource("1_cqxa1")]
-position = Vector2(1036, 0)
+position = Vector2(1000, 0)
+
+[node name="Portrait" type="TextureRect" parent="Cardhandler/Card3" unique_id=1347374637]
+visible = false
+offset_left = -74.28571
+offset_top = -351.4286
+offset_right = 425.7143
+offset_bottom = 148.57141
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_uvf2a")
 
 [node name="Card4" parent="Cardhandler" unique_id=1096476212 instance=ExtResource("1_cqxa1")]
-position = Vector2(1543, 0)
+position = Vector2(1500, 0)
+
+[node name="Portrait" type="TextureRect" parent="Cardhandler/Card4" unique_id=1378163408]
+visible = false
+offset_left = -74.28571
+offset_top = -351.4286
+offset_right = 425.7143
+offset_bottom = 148.57141
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_uvf2a")
 
 [node name="Card5" parent="Cardhandler" unique_id=1254681985 instance=ExtResource("1_cqxa1")]
-position = Vector2(2073, 0)
+position = Vector2(2000, 0)
+
+[node name="Portrait" type="TextureRect" parent="Cardhandler/Card5" unique_id=323786138]
+visible = false
+offset_left = -74.28571
+offset_top = -351.4286
+offset_right = 425.7143
+offset_bottom = 148.57141
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_uvf2a")
+
+[node name="BirbPortraitHandler" type="Node2D" parent="." unique_id=1568831573]
+script = ExtResource("3_o7x4b")
+
+[node name="CrowH" type="HBoxContainer" parent="BirbPortraitHandler" unique_id=1678756622]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = 560.0
+offset_right = 4535.0
+offset_bottom = 1060.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme_override_constants/separation = 340
+alignment = 1
+
+[node name="CrowHandler" type="Node2D" parent="BirbPortraitHandler" unique_id=62690885]
+
+[node name="Crow1" type="TextureRect" parent="BirbPortraitHandler/CrowHandler" unique_id=816984746]
+visible = false
+offset_left = 86.0
+offset_top = 582.0
+offset_right = 586.0
+offset_bottom = 1082.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_vt1ej")
+expand_mode = 2
+
+[node name="Crow2" type="TextureRect" parent="BirbPortraitHandler/CrowHandler" unique_id=1677574466]
+visible = false
+offset_left = 434.0
+offset_top = 582.0
+offset_right = 934.0
+offset_bottom = 1082.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_vt1ej")
+expand_mode = 2
+
+[node name="Crow3" type="TextureRect" parent="BirbPortraitHandler/CrowHandler" unique_id=882690722]
+offset_left = 787.0
+offset_top = 582.0
+offset_right = 1287.0
+offset_bottom = 1082.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_vt1ej")
+expand_mode = 2
+
+[node name="Crow4" type="TextureRect" parent="BirbPortraitHandler/CrowHandler" unique_id=1294315670]
+visible = false
+offset_left = 1135.0
+offset_top = 575.0
+offset_right = 1635.0
+offset_bottom = 1075.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_vt1ej")
+expand_mode = 2
+
+[node name="Crow5" type="TextureRect" parent="BirbPortraitHandler/CrowHandler" unique_id=180805264]
+visible = false
+offset_left = 1485.0
+offset_top = 582.0
+offset_right = 1985.0
+offset_bottom = 1082.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_vt1ej")
+expand_mode = 2
+
+[node name="ParotHandler" type="Node2D" parent="BirbPortraitHandler" unique_id=1867865387]
+position = Vector2(0, 150)
+
+[node name="Parot1" type="TextureRect" parent="BirbPortraitHandler/ParotHandler" unique_id=2131774014]
+visible = false
+offset_left = 218.0
+offset_top = 440.0
+offset_right = 718.0
+offset_bottom = 940.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_uvf2a")
+expand_mode = 2
+
+[node name="Parot2" type="TextureRect" parent="BirbPortraitHandler/ParotHandler" unique_id=798562725]
+visible = false
+offset_left = 559.0
+offset_top = 438.0
+offset_right = 1059.0
+offset_bottom = 938.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7x4b")
+expand_mode = 2
+
+[node name="Parot3" type="TextureRect" parent="BirbPortraitHandler/ParotHandler" unique_id=532549513]
+offset_left = 918.0
+offset_top = 433.0
+offset_right = 1418.0
+offset_bottom = 933.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_uvf2a")
+expand_mode = 2
+
+[node name="Parot4" type="TextureRect" parent="BirbPortraitHandler/ParotHandler" unique_id=704902126]
+visible = false
+offset_left = 1279.0
+offset_top = 431.0
+offset_right = 1779.0
+offset_bottom = 931.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_uvf2a")
+expand_mode = 2
+
+[node name="Parot5" type="TextureRect" parent="BirbPortraitHandler/ParotHandler" unique_id=1387510395]
+visible = false
+offset_left = 1622.0
+offset_top = 433.0
+offset_right = 2122.0
+offset_bottom = 933.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_uvf2a")
+expand_mode = 2
+
+[node name="PigeonHandler" type="Node2D" parent="BirbPortraitHandler" unique_id=882060857]
+position = Vector2(0, 300)
+
+[node name="Pigeon1" type="TextureRect" parent="BirbPortraitHandler/PigeonHandler" unique_id=1890901444]
+visible = false
+offset_left = 93.0
+offset_top = 430.0
+offset_right = 593.0
+offset_bottom = 930.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_o7x4b")
+expand_mode = 2
+
+[node name="Pigeon2" type="TextureRect" parent="BirbPortraitHandler/PigeonHandler" unique_id=2121458851]
+visible = false
+offset_left = 436.0
+offset_top = 430.0
+offset_right = 936.0
+offset_bottom = 930.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_o7x4b")
+expand_mode = 2
+
+[node name="Pigeon3" type="TextureRect" parent="BirbPortraitHandler/PigeonHandler" unique_id=2146289510]
+offset_left = 796.0
+offset_top = 418.0
+offset_right = 1296.0
+offset_bottom = 918.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_o7x4b")
+expand_mode = 2
+
+[node name="Pigeon4" type="TextureRect" parent="BirbPortraitHandler/PigeonHandler" unique_id=1573030390]
+visible = false
+offset_left = 1146.0
+offset_top = 411.0
+offset_right = 1646.0
+offset_bottom = 911.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_o7x4b")
+expand_mode = 2
+
+[node name="Pigeon5" type="TextureRect" parent="BirbPortraitHandler/PigeonHandler" unique_id=868488338]
+visible = false
+offset_left = 1494.0
+offset_top = 419.0
+offset_right = 1994.0
+offset_bottom = 919.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_o7x4b")
+expand_mode = 2
+
+[node name="OwlHandler" type="Node2D" parent="BirbPortraitHandler" unique_id=108028888]
+position = Vector2(0, 300)
+
+[node name="Owl1" type="TextureRect" parent="BirbPortraitHandler/OwlHandler" unique_id=1293116618]
+visible = false
+offset_left = 225.99998
+offset_top = 430.0
+offset_right = 726.0
+offset_bottom = 930.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ucp30")
+expand_mode = 2
+
+[node name="Owl2" type="TextureRect" parent="BirbPortraitHandler/OwlHandler" unique_id=2016122834]
+visible = false
+offset_left = 569.0
+offset_top = 430.0
+offset_right = 1069.0
+offset_bottom = 930.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ucp30")
+expand_mode = 2
+
+[node name="Owl3" type="TextureRect" parent="BirbPortraitHandler/OwlHandler" unique_id=1671827549]
+offset_left = 929.0
+offset_top = 418.0
+offset_right = 1429.0
+offset_bottom = 918.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ucp30")
+expand_mode = 2
+
+[node name="Owl4" type="TextureRect" parent="BirbPortraitHandler/OwlHandler" unique_id=1855674625]
+visible = false
+offset_left = 1279.0
+offset_top = 411.0
+offset_right = 1779.0
+offset_bottom = 911.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ucp30")
+expand_mode = 2
+
+[node name="Owl5" type="TextureRect" parent="BirbPortraitHandler/OwlHandler" unique_id=1533980186]
+visible = false
+offset_left = 1627.0
+offset_top = 419.0
+offset_right = 2127.0
+offset_bottom = 919.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ucp30")
+expand_mode = 2
+
+[node name="GooseHandler" type="Node2D" parent="BirbPortraitHandler" unique_id=1328700199]
+position = Vector2(0, 300)
+
+[node name="Goose1" type="TextureRect" parent="BirbPortraitHandler/GooseHandler" unique_id=816586203]
+visible = false
+offset_left = 168.0
+offset_top = 557.0
+offset_right = 668.0
+offset_bottom = 1057.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7x4b")
+expand_mode = 2
+
+[node name="Goose2" type="TextureRect" parent="BirbPortraitHandler/GooseHandler" unique_id=2035069749]
+visible = false
+offset_left = 511.0
+offset_top = 557.0
+offset_right = 1011.0
+offset_bottom = 1057.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7x4b")
+expand_mode = 2
+
+[node name="Goose3" type="TextureRect" parent="BirbPortraitHandler/GooseHandler" unique_id=1867165031]
+offset_left = 871.0
+offset_top = 545.0
+offset_right = 1371.0
+offset_bottom = 1045.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7x4b")
+expand_mode = 2
+
+[node name="Goose4" type="TextureRect" parent="BirbPortraitHandler/GooseHandler" unique_id=534026615]
+visible = false
+offset_left = 1221.0
+offset_top = 538.0
+offset_right = 1721.0
+offset_bottom = 1038.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7x4b")
+expand_mode = 2
+
+[node name="Goose5" type="TextureRect" parent="BirbPortraitHandler/GooseHandler" unique_id=887289703]
+visible = false
+offset_left = 1569.0
+offset_top = 546.0
+offset_right = 2069.0
+offset_bottom = 1046.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_o7x4b")
+expand_mode = 2
