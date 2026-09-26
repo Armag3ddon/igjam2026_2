@@ -30,3 +30,16 @@ func getBirdPortrait(bird: int) -> String:
 	if bird == BIRDS.PIGEON:
 		return "res://assets/portraits/pigeon_portrait.jpg"
 	return ""
+
+func getBirdNames(bird: int) -> String:
+	if bird == BIRDS.CROW:
+		return "CRUEL Crow"
+	if bird == BIRDS.GOOSE:
+		return "GUTTING Goose"
+	if bird == BIRDS.OWL:
+		return "ONSLAUGHT Owl"
+	if bird == BIRDS.PARROT:
+		return "PAIN Parrot"
+	if bird == BIRDS.PIGEON:
+		return "PIGEON"
+	return ""

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://qg0o6l2eu06b"]
+
+[ext_resource type="Script" uid="uid://cnyic2vdun0sk" path="res://scripts/player_selection.gd" id="1_5iuoi"]
+[ext_resource type="Texture2D" uid="uid://eosp03n8w2e7" path="res://assets/sky_pattern.jpg" id="1_towsm"]
+[ext_resource type="Texture2D" uid="uid://vo5glhoochsb" path="res://assets/portraits/crow_portrait.jpg" id="3_5iuoi"]
+[ext_resource type="Texture2D" uid="uid://qbaa4s2aie3q" path="res://assets/effects/bird_particlepng.png" id="3_pxqpc"]
+
+[node name="PlayerSelection" type="Control" unique_id=731790906]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5iuoi")
+
+[node name="Background" type="TextureRect" parent="." unique_id=975782835]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_towsm")
+stretch_mode = 1
+
+[node name="PlayerSelectorContainer" type="HBoxContainer" parent="." unique_id=1957598297]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -159.0
+offset_right = 128.0
+offset_bottom = 159.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="FirstPlayerSelector" type="VBoxContainer" parent="PlayerSelectorContainer" unique_id=2083731210]
+layout_mode = 2
+alignment = 1
+
+[node name="FirstPlayerEmitter" type="CPUParticles2D" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1476579936]
+visible = false
+position = Vector2(250, 250)
+texture = ExtResource("3_pxqpc")
+speed_scale = 4.8
+emission_shape = 6
+emission_ring_inner_radius = 0.8
+emission_ring_radius = 250.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 128.71
+initial_velocity_max = 297.03
+angular_velocity_min = 71.29
+angular_velocity_max = 156.83
+
+[node name="Portrait" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1344748027]
+layout_mode = 2
+texture = ExtResource("3_5iuoi")
+
+[node name="Buttons" type="HBoxContainer" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1730572103]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="PlayerOneLeft" type="Button" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=1527381424]
+layout_mode = 2
+text = "<-"
+
+[node name="PlayerOneRight" type="Button" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=774351829]
+layout_mode = 2
+text = "->"
+
+[node name="Birdname" type="Label" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1261167824]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "DEATH Crow"
+horizontal_alignment = 1
+
+[node name="SecondPlayerSelector" type="VBoxContainer" parent="PlayerSelectorContainer" unique_id=993088200]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="SecondPlayerEmitter" type="CPUParticles2D" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=2050746648]
+visible = false
+position = Vector2(250, 250)
+texture = ExtResource("3_pxqpc")
+speed_scale = 4.8
+emission_shape = 6
+emission_ring_inner_radius = 0.8
+emission_ring_radius = 250.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 128.71
+initial_velocity_max = 297.03
+angular_velocity_min = 71.29
+angular_velocity_max = 156.83
+
+[node name="Portrait" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=1434549895]
+layout_mode = 2
+texture = ExtResource("3_5iuoi")
+
+[node name="Buttons" type="HBoxContainer" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=675562770]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="PlayerTwoLeft" type="Button" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=926039573]
+layout_mode = 2
+text = "<-"
+
+[node name="PlayerTwoRight" type="Button" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=514101750]
+layout_mode = 2
+text = "->"
+
+[node name="Birdname" type="Label" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=1242091218]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "DEATH Crow"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" to="." method="_on_player_one_left_pressed"]
+[connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneRight" to="." method="_on_player_one_right_pressed"]
+[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_two_left_pressed"]
+[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_one_left_pressed"]
+[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_two_right_pressed"]
+[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_one_right_pressed"]
