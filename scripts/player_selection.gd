@@ -3,14 +3,16 @@ extends Control
 var player_one_selection: int
 var player_one_done: bool = false
 @onready var player_one_portrait: TextureRect = $"PlayerSelectorContainer/FirstPlayerSelector/Portrait Holder/Portrait"
-@onready var player_one_name: Label = $PlayerSelectorContainer/FirstPlayerSelector/PanelContainer/Birdname
+@onready var player_one_portrait_border: TextureRect = $"PlayerSelectorContainer/FirstPlayerSelector/Portrait Holder/Border"
+@onready var player_one_name: Label = $PlayerSelectorContainer/FirstPlayerSelector/Buttons/PanelContainer/Birdname
 @onready var player_one_emitter: CPUParticles2D = $PlayerSelectorContainer/FirstPlayerSelector/FirstPlayerEmitter
 
 var player_two_selection: int
 var player_two_done: bool = false
 @onready var player_two: VBoxContainer = $PlayerSelectorContainer/SecondPlayerSelector
 @onready var player_two_portrait: TextureRect = $"PlayerSelectorContainer/SecondPlayerSelector/Portrait Holder/Portrait"
-@onready var player_two_name: Label = $PlayerSelectorContainer/SecondPlayerSelector/PanelContainer/Birdname
+@onready var player_two_portrait_border: TextureRect = $"PlayerSelectorContainer/SecondPlayerSelector/Portrait Holder/Border"
+@onready var player_two_name: Label = $PlayerSelectorContainer/SecondPlayerSelector/Buttons/PanelContainer/Birdname
 @onready var player_two_emitter: CPUParticles2D = $PlayerSelectorContainer/SecondPlayerSelector/SecondPlayerEmitter
 
 var wait_time: float = 1.0
@@ -50,8 +52,10 @@ func playerOneAccept() -> void:
 	if Global.player_count == 2:
 		if player_one_selection == player_two_selection:
 			return
-	player_one_emitter.visible = true
-	player_one_done = true
+	var texture: Texture2D = load("res://assets/ui/character_select_p1.png")
+	player_one_portrait_border.texture = texture
+	#player_one_emitter.visible = true
+	#player_one_done = true
 
 func _on_player_one_left_pressed() -> void:
 	playerOneChange(-1)
@@ -76,8 +80,10 @@ func playerTwoChange(change: int) -> void:
 func playerTwoAccept() -> void:
 	if player_one_selection == player_two_selection:
 		return
-	player_two_emitter.visible = true
-	player_two_done = true
+	var texture: Texture2D = load("res://assets/ui/character_select_p2.png")
+	player_two_portrait_border.texture = texture
+	#player_one_emitter.visible = true
+	#player_one_done = true
 
 func _on_player_two_left_pressed() -> void:
 	playerTwoChange(-1)

@@ -196,7 +196,7 @@ func checkGloat() -> void:
 		var gloater: int = gloatees.pick_random()
 		var overlay: Control = gloat_scene.instantiate()
 		add_child(overlay)
-		overlay.setup(Global.getBirdNames(gloater), Global.getBirdGloat(gloater), Global.getBirdPortrait(gloater), Global.getBirdCall(gloater))
+		overlay.setup(Global.getBirdNames(gloater), Global.getBirdGloat(gloater), Global.getBirdGloatPortrait(gloater), Global.getBirdCall(gloater))
 		game_state = game_states.GLOAT
 	else:
 		drawDanger()

@@ -56,6 +56,19 @@ func getBirdPortrait(bird: int) -> String:
 		return "res://assets/portraits/portrait_pigeon.png"
 	return ""
 
+func getBirdGloatPortrait(bird: int) -> String:
+	if bird == BIRDS.CROW:
+		return "res://assets/portraits/portrait_crow_gloat.png"
+	if bird == BIRDS.GOOSE:
+		return "res://assets/portraits/portrait_goose_gloat.png"
+	if bird == BIRDS.OWL:
+		return "res://assets/portraits/portrait_owl_gloat.png"
+	if bird == BIRDS.PARROT:
+		return "res://assets/portraits/portrait_parrot_gloat.png"
+	if bird == BIRDS.PIGEON:
+		return "res://assets/portraits/portrait_pigeon_gloat.png"
+	return ""
+
 func getBirdCall(bird: int) -> String:
 	if bird == BIRDS.CROW:
 		return "res://assets/snd/Crow.mp3"

@@ -173,6 +173,7 @@ texture = ExtResource("5_51kxy")
 flip_h = true
 
 [node name="PanelContainer" type="PanelContainer" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=111947123]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
 
@@ -310,6 +311,7 @@ texture = ExtResource("5_51kxy")
 flip_h = true
 
 [node name="PanelContainer" type="PanelContainer" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=170305795]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
 
