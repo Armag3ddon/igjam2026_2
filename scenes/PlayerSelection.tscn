@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://eosp03n8w2e7" path="res://assets/sky_pattern.jpg" id="1_towsm"]
 [ext_resource type="Texture2D" uid="uid://qbaa4s2aie3q" path="res://assets/effects/bird_particlepng.png" id="3_pxqpc"]
 [ext_resource type="Texture2D" uid="uid://4ojcwf02ytop" path="res://assets/ui/portrait_crow.png" id="4_4qubk"]
+[ext_resource type="Texture2D" uid="uid://bvm03568fxnm" path="res://assets/ui/character_frame_bg.png" id="4_ety38"]
 [ext_resource type="Texture2D" uid="uid://y12fb048aay5" path="res://assets/ui/arrow.png" id="5_51kxy"]
 [ext_resource type="Texture2D" uid="uid://cy38gcuwwb5ti" path="res://assets/ui/character_frame.png" id="5_ety38"]
 [ext_resource type="Texture2D" uid="uid://c1acpyy0y4yrk" path="res://assets/ui/name_box.png" id="5_m1wyh"]
@@ -72,6 +73,21 @@ angular_velocity_max = 156.83
 [node name="Portrait Holder" type="Control" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1622157022]
 custom_minimum_size = Vector2(382, 387)
 layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector/Portrait Holder" unique_id=1909282439]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -320.505
+offset_right = 128.0
+offset_bottom = -64.505005
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_ety38")
 
 [node name="Portrait" type="TextureRect" parent="PlayerSelectorContainer/FirstPlayerSelector/Portrait Holder" unique_id=1344748027]
 custom_maximum_size = Vector2(382, 387)
@@ -194,6 +210,21 @@ angular_velocity_max = 156.83
 [node name="Portrait Holder" type="Control" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=1776962735]
 custom_minimum_size = Vector2(382, 387)
 layout_mode = 2
+
+[node name="Background" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector/Portrait Holder" unique_id=1972684325]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -320.505
+offset_right = 128.0
+offset_bottom = -64.505005
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_ety38")
 
 [node name="Portrait" type="TextureRect" parent="PlayerSelectorContainer/SecondPlayerSelector/Portrait Holder" unique_id=1153523121]
 custom_maximum_size = Vector2(382, 387)
