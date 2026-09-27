@@ -24,11 +24,14 @@ var swerve_position: Vector2 = Vector2(0, 0)
 
 var was_hit: bool = false
 
+@onready var dust_effect: PackedScene = preload("res://scenes/effects/Collision.tscn")
+var graphics: Node2D
+
 func setGraphics(new_graphics: PackedScene) -> void:
 	Graphics = new_graphics
-	var child = new_graphics.instantiate()
-	child.scale = Vector2(graphics_scale, graphics_scale)
-	add_child(child)
+	graphics = new_graphics.instantiate()
+	graphics.scale = Vector2(graphics_scale, graphics_scale)
+	add_child(graphics)
 
 func setNewPosition(new_pos: Vector2) -> void:
 	grid_position = new_pos
@@ -51,6 +54,10 @@ func startSwerve() -> void:
 
 func registerHit() -> void:
 	was_hit = true
+	var new_collision = dust_effect.instantiate()
+	new_collision.position.x = position.x
+	new_collision.position.y = position.y
+	get_parent().add_child(new_collision)
 
 func processAdvance() -> void:
 	if was_hit:

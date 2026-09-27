@@ -24,6 +24,9 @@ func flip(card_drawer: Control) -> void:
 func unflip() -> void:
 	animator.play("unflip")
 
+func picked() -> void:
+	pass
+
 func _process(delta: float) -> void:
 	if animation_started and not animation_finished:
 		if not animator.is_playing():

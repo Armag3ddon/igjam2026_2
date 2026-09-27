@@ -296,6 +296,4 @@ horizontal_alignment = 1
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" to="." method="_on_player_one_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneRight" to="." method="_on_player_one_right_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_two_left_pressed"]
-[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_one_left_pressed"]
-[connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_one_right_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_two_right_pressed"]

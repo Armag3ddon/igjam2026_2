@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://coyicx8qbptgv"]
+
+[ext_resource type="Texture2D" uid="uid://dwy0rtqh5krsq" path="res://assets/effects/dust_cloud_spritesheet.png" id="1_4q1r2"]
+[ext_resource type="Script" uid="uid://b1httxhnx7mvp" path="res://scripts/collision.gd" id="1_5a53u"]
+[ext_resource type="Texture2D" uid="uid://ds2gmdi5ox0lj" path="res://assets/effects/feather_particles.png" id="2_5a53u"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o3h6e"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_eup4k"]
+_data = [Vector2(0, 0.84269667), 0.0, 0.0, 0, 0, Vector2(0.5472973, 0.68539333), 0.0, 0.0, 0, 0, Vector2(0.98648655, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_p32v3"]
+curve = SubResource("Curve_eup4k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_54y0a"]
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_max = 615.38
+radial_velocity_min = 4.9999776
+radial_velocity_max = 9.999977
+gravity = Vector3(0, 98, 0)
+scale_min = 0.29999998
+scale_max = 0.79999995
+alpha_curve = SubResource("CurveTexture_p32v3")
+anim_offset_max = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5bi6"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ly03s"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e22ew"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_io4ge"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6ah0"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nhrj"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3byds"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52qpc"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(3584, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ealhh"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(4096, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6po44"]
+atlas = ExtResource("1_4q1r2")
+region = Rect2(4608, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3h6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5bi6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ly03s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e22ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_io4ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6ah0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nhrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3byds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52qpc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ealhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6po44")
+}, {
+"duration": 100.0,
+"texture": SubResource("AtlasTexture_y5bi6")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 25.0
+}]
+
+[node name="Collision" type="Node2D" unique_id=1786268085]
+script = ExtResource("1_5a53u")
+
+[node name="Feathers" type="GPUParticles2D" parent="." unique_id=1103444437]
+material = SubResource("CanvasItemMaterial_o3h6e")
+emitting = false
+amount = 25
+texture = ExtResource("2_5a53u")
+one_shot = true
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_54y0a")
+
+[node name="DustCloud" type="AnimatedSprite2D" parent="." unique_id=926409652]
+sprite_frames = SubResource("SpriteFrames_o3h6e")
+autoplay = "default"
+frame_progress = 0.9093127

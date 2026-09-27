@@ -136,7 +136,6 @@ func drawCards() -> void:
 			racers_strategy[i].append(cards.RIGHT)
 		if not dangers[getWrappedLane(current_lane + 2)]:
 			racers_strategy[i].append(cards.TWORIGHT)
-	print(racers_strategy)
 	var card_drawer: Control = card_drawer_scene.instantiate()
 	var standard_cards: Array[int] = [cards.TWOLEFT, cards.LEFT, cards.STAY, cards.RIGHT, cards.TWORIGHT]
 	add_child(card_drawer)
@@ -166,6 +165,18 @@ func drawDone():
 	$BackgroundMusic.volume_db = 0.0
 	$BackgroundMusic_Cards.volume_db = -80.0
 
+func checkGameOver() -> bool:
+	Global.winner_winner_chicken_dinner = [false, false, false, false, false]
+	var at_least_one_winner: bool = false
+	for i: int in 5:
+		if racers[i].grid_position.y == 1:
+			Global.winner_winner_chicken_dinner[i] = true
+			at_least_one_winner = true
+	return at_least_one_winner
+
+func gameOver() -> void:
+	get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
+
 func _process(delta: float) -> void:
 	if game_state == game_states.DANGER:
 		danger_time += delta
@@ -174,7 +185,10 @@ func _process(delta: float) -> void:
 	if game_state == game_states.REPOSITION:
 		reposition_time += delta
 		if reposition_time >= reposition_wait:
-			spawnDangers()
+			if checkGameOver():
+				gameOver()
+			else:
+				spawnDangers()
 	if game_state == game_states.UPDOWN:
 		updown_time += delta
 		if updown_time >= updown_wait:

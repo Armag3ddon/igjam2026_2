@@ -15,6 +15,8 @@ var player_two_done: bool = false
 
 var wait_time: float = 1.0
 
+@onready var preload_gpu_particles: PackedScene = load("res://scenes/effects/Collision.tscn")
+
 func _ready() -> void:
 	wait_time = 1.0
 	player_one_selection = Global.BIRDS.values().pick_random()
@@ -110,4 +112,7 @@ func doWait(delta: float) -> void:
 	if wait_time < 0.0:
 		Global.player_one_bird = player_one_selection
 		Global.player_two_bird = player_two_selection
+		var preloading: Node2D = preload_gpu_particles.instantiate()
+		preloading.position = Vector2(-1000.0, -1000.0)
+		add_child(preloading)
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
