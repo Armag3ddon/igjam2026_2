@@ -3,6 +3,8 @@ extends Control
 @onready var card_symbol: TextureRect = $Foreground/CardContent
 @onready var animator: AnimationPlayer = $CardFlipper
 
+@export var selection_portrait: TextureRect
+
 var card_type: int
 
 var animation_started: bool = false
@@ -18,6 +20,9 @@ func flip(card_drawer: Control) -> void:
 	animator.play("flip")
 	animation_started = true
 	callback = card_drawer
+
+func unflip() -> void:
+	animator.play("unflip")
 
 func _process(delta: float) -> void:
 	if animation_started and not animation_finished:

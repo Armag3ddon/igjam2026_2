@@ -136,6 +136,7 @@ func drawCards() -> void:
 			racers_strategy[i].append(cards.RIGHT)
 		if not dangers[getWrappedLane(current_lane + 2)]:
 			racers_strategy[i].append(cards.TWORIGHT)
+	print(racers_strategy)
 	var card_drawer: Control = card_drawer_scene.instantiate()
 	var standard_cards: Array[int] = [cards.TWOLEFT, cards.LEFT, cards.STAY, cards.RIGHT, cards.TWORIGHT]
 	add_child(card_drawer)

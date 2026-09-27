@@ -5,6 +5,7 @@ extends Control
 @export var cardJumpHeight: float = 650;
 
 @onready var cards: Array[Node] = [$Cardhandler/Card1, $Cardhandler/Card2, $Cardhandler/Card3, $Cardhandler/Card4, $Cardhandler/Card5]
+@onready var birb_handler: Control = $BirbPortraitHandler
 
 enum draw_states {
 	NOTHING,
@@ -23,6 +24,11 @@ var wait_wait: float = 2.0
 var card_to_flip: int = 0
 
 var flip_time: float = 0.0
+
+var select_time: float = 0.0
+
+var end_time: float = 0.0
+var end_wait: float = 1.5
 
 func setupCards(card_types: Array[int]) -> void:
 	card_types.shuffle()
@@ -49,6 +55,8 @@ func shuffleCards() -> void:
 	timesToMove -= 1
 	if timesToMove < 0:
 		draw_state = draw_states.SELECT
+		birb_handler.selection_started = true
+		$DRAW.visible = true
 		return
 	var first_card_index: int = randi_range(0,cards.size()-1)
 	var second_card_index: int = randi_range(0,cards.size()-1)
@@ -62,7 +70,37 @@ func shuffleCards() -> void:
 	cards[second_card_index] = first_card
 	flip_time = 0.0
 
+func selectionDone() -> void:
+	draw_state = draw_states.END
+	for card: Node in cards:
+		card.unflip()
+	$DRAW.visible = false
+
+func processSelection() -> void:
+	var game: Node2D = get_parent()
+	for i: int in 5:
+		var selected_card: int = birb_handler.current_player_selections[i]
+		var card_type: int = cards[selected_card].card_type
+		var move: int = 0
+		match card_type:
+			game.cards.TWOLEFT:
+				move = -2
+			game.cards.LEFT:
+				move = -1
+			game.cards.RIGHT:
+				move = 1
+			game.cards.TWORIGHT:
+				move = 2
+		game.processPlayerDraw(i, move)
+	game.drawDone()
+
 func _process(delta: float) -> void:
+	if draw_state == draw_states.SELECT:
+		select_time += delta
+		for i: int in 5:
+			if not Global.is_player_human[i]:
+				if select_time >= Global.bird_bots[i][Global.BIRDBOT.SPEED]:
+					birb_handler.selectCardForBot(i, get_parent().racers_strategy[i], cards)
 	if draw_state == draw_states.WAIT:
 		wait_time += delta
 		if wait_time >= wait_wait:
@@ -73,6 +111,13 @@ func _process(delta: float) -> void:
 		flip_time += delta
 		if flip_time > cardSwitchSpeed:
 			shuffleCards()
+	if draw_state == draw_states.END:
+		end_time += delta
+		if end_time >= end_wait:
+			processSelection()
+			get_parent().remove_child(self)
+			queue_free()
+			end_time = 0.0
 
 func switchCards(cardToMove: Control,start: Vector2, target: Vector2, height: float, duration: float)-> void:
 	var tween = create_tween()

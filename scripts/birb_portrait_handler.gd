@@ -8,7 +8,14 @@ var current_player_selections: Array[int] = [2, 2, 2, 2, 2]
 @onready var pigeons: Array[Node] = $PigeonHandler.get_children()
 @onready var geese: Array[Node] = $GooseHandler.get_children()
 
-var cardsPicked: Array[bool] = [false,false,false,false,false];
+var cardsPicked: Array[bool] = [false,false,false,false,false]
+var player_has_picked: Array[bool] = [false,false,false,false,false]
+var cards_picked_count: int = 0
+var selection_finished: bool = false
+var selection_started: bool = false
+
+@onready var cards_node = get_parent()
+
 var playerOneAnimal: Array[Node];
 var playerOneAnimalPortrait: int;
 var playerTwoAnimalPortrait: int;
@@ -21,7 +28,7 @@ var playerTwoLoggedIn: bool = false
 var playerCount: int = 2;
 var payerOneIsOverCard: int = 3;
 var payerTwoIsOverCard: int = 3;
-@onready var cards_node = get_parent()
+
 
 func switchPlayerToCard(player: int, card: int) -> void:
 	match player:
@@ -51,6 +58,12 @@ func _input(event: InputEvent) -> void:
 		switchPlayerToCard(Global.player_two_bird, wrapAround(current_player_selections[Global.player_two_bird] - 1))
 	if event.is_action_pressed("PlayerTwo_Right") and Global.player_count > 1:
 		switchPlayerToCard(Global.player_two_bird, wrapAround(current_player_selections[Global.player_two_bird] + 1))
+	if event.is_action_pressed("PlayerOne_Accept") and selection_started:
+		if not cardsPicked[current_player_selections[Global.player_one_bird]]:
+			playerSelectsCard(Global.player_one_bird, current_player_selections[Global.player_one_bird], cards_node.cards[current_player_selections[Global.player_one_bird]])
+	if event.is_action_pressed("PlayerTwo_Accept") and Global.player_count > 1 and selection_started:
+		if not cardsPicked[current_player_selections[Global.player_two_bird]]:
+			playerSelectsCard(Global.player_two_bird, current_player_selections[Global.player_two_bird], cards_node.cards[current_player_selections[Global.player_two_bird]])
 
 func wrapAround(card: int) -> int:
 	if card < 0:
@@ -60,10 +73,83 @@ func wrapAround(card: int) -> int:
 	return card
 
 func _process(delta: float) -> void:
+	if not selection_started:
+		for i: int in 5:
+			if not Global.is_player_human[i]:
+				if randf() < 0.005:
+					switchPlayerToCard(i, wrapAround(current_player_selections[i] + (randi() % 3 -1)))
+	if cards_picked_count == 4:
+		autoSelectLastCard()
+	if cards_picked_count == 5 and not selection_finished:
+		cards_node.selectionDone()
+		selection_finished = true
+
+func autoSelectLastCard() -> void:
 	for i: int in 5:
-		if not Global.is_player_human[i]:
-			if randf() < 0.005:
-				switchPlayerToCard(i, wrapAround(current_player_selections[i] + (randi() % 3 -1)))
+		if not player_has_picked[i]:
+			for j: int in 5:
+				if not cardsPicked[j]:
+					playerSelectsCard(i, j, cards_node.cards[j])
+
+func selectCardForBot(bird: int, strategy: Array, card_order: Array[Node]) -> void:
+	if player_has_picked[bird]:
+		return
+	var accuracy: float = Global.bird_bots[bird][Global.BIRDBOT.ACCURACY]
+	var accurate_roll: float = randf() * 100.0
+	if accurate_roll < accuracy:
+		if not selectCorrectCard(bird, strategy, card_order):
+			selectIncorrectCard(bird, strategy, card_order)
+	else:
+		if not selectIncorrectCard(bird, strategy, card_order):
+			selectCorrectCard(bird, strategy, card_order)
+
+func selectCorrectCard(bird: int, strategy: Array, card_order: Array[Node]) -> bool:
+	var found: bool = false
+	var i: int = 0
+	for card: Node in card_order:
+		if found:
+			continue
+		if strategy.has(card.card_type):
+			if not cardsPicked[i]:
+				playerSelectsCard(bird, i, card_order[i])
+				found = true
+		i += 1
+	return found
+
+func selectIncorrectCard(bird: int, strategy: Array, card_order: Array[Node]) -> bool:
+	var found: bool = false
+	var i: int = 0
+	for card: Node in card_order:
+		if found:
+			continue
+		if not strategy.has(card.card_type):
+			if not cardsPicked[i]:
+				playerSelectsCard(bird, i, card_order[i])
+				found = true
+		i += 1
+	return found
+
+func playerSelectsCard(player: int, card: int, card_node: Node) -> void:
+	if cardsPicked[card]:
+		return
+	var player_texture: Texture2D = load(Global.getBirdPortrait(player))
+	match player:
+		Global.BIRDS.CROW:
+			crows[current_player_selections[player]].visible = false
+		Global.BIRDS.GOOSE:
+			geese[current_player_selections[player]].visible = false
+		Global.BIRDS.OWL:
+			owls[current_player_selections[player]].visible = false
+		Global.BIRDS.PARROT:
+			parrots[current_player_selections[player]].visible = false
+		Global.BIRDS.PIGEON:
+			pigeons[current_player_selections[player]].visible = false
+	card_node.selection_portrait.texture = player_texture
+	card_node.selection_portrait.visible = true
+	cardsPicked[card] = true
+	current_player_selections[player] = card
+	player_has_picked[player] = true
+	cards_picked_count += 1
 
 ## Called when the node enters the scene tree for the first time.
 #func _ready() -> void:

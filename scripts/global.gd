@@ -10,7 +10,7 @@ var is_player_human: Array[bool] = [false, false, false, false, false]
 var bird_bots: Array[Array] = [
 	[2.0, 50.0], # Crow: balanced
 	[1.5, 25.0], # Goose: quicker but worse
-	[3.0, 100.0], # Owl: slow but perfect
+	[3.0, 100.1], # Owl: slow but perfect
 	[2.5, 75.0], # Parrot: slower but better
 	[0.5, 0.0] # Pigeon: quick but random
 ]

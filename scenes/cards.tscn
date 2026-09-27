@@ -57,8 +57,9 @@ offset_right = 255.0
 offset_bottom = 374.0
 scale = Vector2(0.7, 0.7)
 
-[node name="Card1" parent="Cardhandler" unique_id=1079423381 instance=ExtResource("1_cqxa1")]
+[node name="Card1" parent="Cardhandler" unique_id=1079423381 node_paths=PackedStringArray("selection_portrait") instance=ExtResource("1_cqxa1")]
 layout_mode = 0
+selection_portrait = NodePath("Portrait")
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card1" unique_id=592856656]
 visible = false
@@ -70,10 +71,11 @@ offset_bottom = 148.57141
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_uvf2a")
 
-[node name="Card2" parent="Cardhandler" unique_id=1162718171 instance=ExtResource("1_cqxa1")]
+[node name="Card2" parent="Cardhandler" unique_id=1162718171 node_paths=PackedStringArray("selection_portrait") instance=ExtResource("1_cqxa1")]
 layout_mode = 0
 offset_left = 500.0
 offset_right = 500.0
+selection_portrait = NodePath("Portrait")
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card2" unique_id=1460829638]
 visible = false
@@ -85,10 +87,11 @@ offset_bottom = 148.57141
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_uvf2a")
 
-[node name="Card3" parent="Cardhandler" unique_id=1596882217 instance=ExtResource("1_cqxa1")]
+[node name="Card3" parent="Cardhandler" unique_id=1596882217 node_paths=PackedStringArray("selection_portrait") instance=ExtResource("1_cqxa1")]
 layout_mode = 0
 offset_left = 1000.0
 offset_right = 1000.0
+selection_portrait = NodePath("Portrait")
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card3" unique_id=1347374637]
 visible = false
@@ -100,10 +103,11 @@ offset_bottom = 148.57141
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_uvf2a")
 
-[node name="Card4" parent="Cardhandler" unique_id=1096476212 instance=ExtResource("1_cqxa1")]
+[node name="Card4" parent="Cardhandler" unique_id=1096476212 node_paths=PackedStringArray("selection_portrait") instance=ExtResource("1_cqxa1")]
 layout_mode = 0
 offset_left = 1500.0
 offset_right = 1500.0
+selection_portrait = NodePath("Portrait")
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card4" unique_id=1378163408]
 visible = false
@@ -115,10 +119,11 @@ offset_bottom = 148.57141
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_uvf2a")
 
-[node name="Card5" parent="Cardhandler" unique_id=1254681985 instance=ExtResource("1_cqxa1")]
+[node name="Card5" parent="Cardhandler" unique_id=1254681985 node_paths=PackedStringArray("selection_portrait") instance=ExtResource("1_cqxa1")]
 layout_mode = 0
 offset_left = 2000.0
 offset_right = 2000.0
+selection_portrait = NodePath("Portrait")
 
 [node name="Portrait" type="TextureRect" parent="Cardhandler/Card5" unique_id=323786138]
 visible = false
