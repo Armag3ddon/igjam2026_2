@@ -55,7 +55,7 @@ func playerOneAccept() -> void:
 	var texture: Texture2D = load("res://assets/ui/character_select_p1.png")
 	player_one_portrait_border.texture = texture
 	#player_one_emitter.visible = true
-	#player_one_done = true
+	player_one_done = true
 
 func _on_player_one_left_pressed() -> void:
 	playerOneChange(-1)
@@ -83,7 +83,7 @@ func playerTwoAccept() -> void:
 	var texture: Texture2D = load("res://assets/ui/character_select_p2.png")
 	player_two_portrait_border.texture = texture
 	#player_one_emitter.visible = true
-	#player_one_done = true
+	player_one_done = true
 
 func _on_player_two_left_pressed() -> void:
 	playerTwoChange(-1)
