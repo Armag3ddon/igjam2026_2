@@ -83,7 +83,7 @@ func playerTwoAccept() -> void:
 	var texture: Texture2D = load("res://assets/ui/character_select_p2.png")
 	player_two_portrait_border.texture = texture
 	#player_one_emitter.visible = true
-	player_one_done = true
+	player_two_done = true
 
 func _on_player_two_left_pressed() -> void:
 	playerTwoChange(-1)
@@ -92,17 +92,17 @@ func _on_player_two_right_pressed() -> void:
 	playerTwoChange(1)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("PlayerOne_Left"):
+	if event.is_action_pressed("PlayerOne_Left") and not player_one_done:
 		playerOneChange(-1)
-	if event.is_action_pressed("PlayerOne_Right"):
+	if event.is_action_pressed("PlayerOne_Right") and not player_one_done:
 		playerOneChange(1)
-	if event.is_action_pressed("PlayerTwo_Left"):
+	if event.is_action_pressed("PlayerTwo_Left") and not player_two_done:
 		playerTwoChange(-1)
-	if event.is_action_pressed("PlayerTwo_Right"):
+	if event.is_action_pressed("PlayerTwo_Right") and not player_two_done:
 		playerTwoChange(1)
-	if event.is_action_pressed("PlayerOne_Accept"):
+	if event.is_action_pressed("PlayerOne_Accept") and not player_one_done:
 		playerOneAccept()
-	if event.is_action_pressed("PlayerTwo_Accept"):
+	if event.is_action_pressed("PlayerTwo_Accept") and not player_two_done:
 		playerTwoAccept()
 
 func _process(delta: float) -> void:
