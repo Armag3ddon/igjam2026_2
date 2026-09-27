@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://q5s5iusaxso6" path="res://misc/menu_theme.tres" id="3_11y2r"]
 [ext_resource type="Texture2D" uid="uid://dijqbk4vqe8bs" path="res://assets/card.png" id="4_o0tnf"]
 [ext_resource type="FontFile" uid="uid://c7uumbqofigwf" path="res://assets/ui/classica/Classica-Bold.ttf" id="5_jmdev"]
+[ext_resource type="Texture2D" uid="uid://1xdbp5s4v01c" path="res://assets/ui/konservenfabrik_anim.png" id="6_b6cxs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o3h6e"]
 texture = ExtResource("4_o0tnf")
@@ -17,6 +18,70 @@ expand_margin_top = 100.0
 expand_margin_right = 100.0
 expand_margin_bottom = 100.0
 axis_stretch_vertical = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaywf"]
+atlas = ExtResource("6_b6cxs")
+region = Rect2(0, 0, 284, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1abgu"]
+atlas = ExtResource("6_b6cxs")
+region = Rect2(284, 0, 284, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt8fu"]
+atlas = ExtResource("6_b6cxs")
+region = Rect2(568, 0, 284, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4umqm"]
+atlas = ExtResource("6_b6cxs")
+region = Rect2(852, 0, 284, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp5m5"]
+atlas = ExtResource("6_b6cxs")
+region = Rect2(1136, 0, 284, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el213"]
+atlas = ExtResource("6_b6cxs")
+region = Rect2(1420, 0, 284, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thu7x"]
+atlas = ExtResource("6_b6cxs")
+region = Rect2(1704, 0, 284, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2af52"]
+atlas = ExtResource("6_b6cxs")
+region = Rect2(1988, 0, 284, 212)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3h6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaywf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1abgu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt8fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4umqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp5m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el213")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thu7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2af52")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Menu" type="Control" unique_id=102383751]
 layout_mode = 3
@@ -100,6 +165,12 @@ offset_right = 597.0
 offset_bottom = 807.0
 theme = ExtResource("3_11y2r")
 text = "Back"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="credits" unique_id=532509149]
+position = Vector2(345, 507)
+sprite_frames = SubResource("SpriteFrames_o3h6e")
+autoplay = "default"
+frame_progress = 0.73838025
 
 [connection signal="pressed" from="menu/hbox/OnePlayer" to="." method="_on_one_player_pressed"]
 [connection signal="pressed" from="menu/hbox/TwoPlayers" to="." method="_on_two_players_pressed"]

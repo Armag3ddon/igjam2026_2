@@ -104,6 +104,16 @@ func getBirdGloat(bird: int) -> String:
 			"I left you so far behind you're entering a different time zone.",
 			"The sky isn't the limit. It's my starting line.",
 			"Requesting permission to fly solo at the front. It’s getting crowded in the back.",
-			"You look great from 30,000 feet up."
+			"You look great from 30,000 feet up.",
+			"Check the rearview mirror. That’s the closest you’ll get to me all day.",
+			"I’d love to stay and chat, but I have a finish line to catch.",
+			"If you aren’t first, you’re just part of the scenery.",
+			"Eat my dust. It’s the only thing on the menu today.",
+			"Are you guys flying or just taking a scenic tour?",
+			"My favorite view is a completely empty track ahead of me.",
+			"I think you dropped something back there. Oh wait, it was just your pace.",
+			"You gave it your all, but my all was just a little too fast.",
+			"Don't worry, the view of my tail feathers gets better the further ahead I get.",
+			"I’d tell you to catch up, but I don't like making impossible promises."
 		]
 	return gloats.pick_random()
