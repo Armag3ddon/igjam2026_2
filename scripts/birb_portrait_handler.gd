@@ -146,6 +146,7 @@ func playerSelectsCard(player: int, card: int, card_node: Node) -> void:
 			pigeons[current_player_selections[player]].visible = false
 	card_node.selection_portrait.texture = player_texture
 	card_node.selection_portrait.visible = true
+	card_node.picked()
 	cardsPicked[card] = true
 	current_player_selections[player] = card
 	player_has_picked[player] = true

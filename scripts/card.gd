@@ -25,7 +25,10 @@ func unflip() -> void:
 	animator.play("unflip")
 
 func picked() -> void:
-	pass
+	var picked: Texture2D = load("res://assets/ui/card_p1.png")
+	var picked_back: Texture2D = load("res://assets/ui/card_back_p1.png")
+	$Foreground.texture = picked
+	$Background.texture = picked_back
 
 func _process(delta: float) -> void:
 	if animation_started and not animation_finished:
