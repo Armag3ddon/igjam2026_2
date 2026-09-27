@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ci5xnmfgcwk6r" path="res://scripts/game_over.gd" id="1_vuicl"]
 [ext_resource type="Theme" uid="uid://q5s5iusaxso6" path="res://misc/menu_theme.tres" id="2_4noiy"]
+[ext_resource type="Texture2D" uid="uid://cl8ybifbtxc8k" path="res://assets/Winning_Screen.png" id="2_88ekj"]
 [ext_resource type="Texture2D" uid="uid://cixwke18jt48" path="res://assets/rank_1.png" id="3_gijjb"]
 [ext_resource type="AudioStream" uid="uid://dgql2fsc1xw81" path="res://assets/snd/Bird_Win.mp3" id="4_gijjb"]
 [ext_resource type="AudioStream" uid="uid://cg313kbc6w4bj" path="res://assets/snd/Bird_Lose.mp3" id="5_88ekj"]
@@ -15,11 +16,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vuicl")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1663821724]
+[node name="Background" type="TextureRect" parent="." unique_id=1790342646]
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_88ekj")
 
 [node name="Button" type="Button" parent="." unique_id=2093157772]
 custom_minimum_size = Vector2(0, 140)

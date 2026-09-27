@@ -36,18 +36,19 @@ texture = ExtResource("3_q8fyp")
 
 [node name="Panel" type="Panel" parent="." unique_id=2069169922]
 layout_mode = 1
-offset_left = 651.0
-offset_top = 767.0
-offset_right = 1666.0
-offset_bottom = 907.0
+offset_left = 508.2927
+offset_top = 706.4677
+offset_right = 1808.2927
+offset_bottom = 1056.4678
 theme = ExtResource("3_tdbwe")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1042067335]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 0
-offset_left = -31.0
-offset_right = 1002.0
-offset_bottom = 108.0
+offset_left = 134.63414
+offset_top = 46.766106
+offset_right = 1167.6342
+offset_bottom = 154.76611
 theme = ExtResource("3_tdbwe")
 bbcode_enabled = true
 text = "Pathetic! Gurr"

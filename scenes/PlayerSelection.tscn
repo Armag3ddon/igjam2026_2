@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cnyic2vdun0sk" path="res://scripts/player_selection.gd" id="1_5iuoi"]
 [ext_resource type="Texture2D" uid="uid://eosp03n8w2e7" path="res://assets/sky_pattern.jpg" id="1_towsm"]
+[ext_resource type="Texture2D" uid="uid://capn2wu57v0hm" path="res://assets/sky_gradient.png" id="3_ocfu5"]
 [ext_resource type="Texture2D" uid="uid://qbaa4s2aie3q" path="res://assets/effects/bird_particlepng.png" id="3_pxqpc"]
 [ext_resource type="Texture2D" uid="uid://4ojcwf02ytop" path="res://assets/ui/portrait_crow.png" id="4_4qubk"]
 [ext_resource type="Texture2D" uid="uid://bvm03568fxnm" path="res://assets/ui/character_frame_bg.png" id="4_ety38"]
@@ -34,6 +35,31 @@ offset_bottom = 1080.0
 texture = ExtResource("1_towsm")
 stretch_mode = 1
 
+[node name="Gradient" type="TextureRect" parent="." unique_id=1107894203]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_ocfu5")
+expand_mode = 2
+
+[node name="BackPanel" type="Panel" parent="." unique_id=1833436297]
+custom_minimum_size = Vector2(1600, 850)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 20)
+theme = ExtResource("7_j7yu4")
+
 [node name="PlayerSelectorContainer" type="HBoxContainer" parent="." unique_id=1957598297]
 layout_mode = 1
 anchors_preset = 8
@@ -47,7 +73,7 @@ offset_right = 128.0
 offset_bottom = 159.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="FirstPlayerSelector" type="VBoxContainer" parent="PlayerSelectorContainer" unique_id=2083731210]
@@ -122,7 +148,7 @@ texture = ExtResource("5_ety38")
 
 [node name="Buttons" type="HBoxContainer" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=1730572103]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="PlayerOneLeft" type="Button" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=1527381424]
@@ -146,6 +172,16 @@ grow_vertical = 2
 texture = ExtResource("5_51kxy")
 flip_h = true
 
+[node name="PanelContainer" type="PanelContainer" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=111947123]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
+
+[node name="Birdname" type="Label" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PanelContainer" unique_id=1261167824]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "XXXXXXXXXXXX"
+horizontal_alignment = 1
+
 [node name="PlayerOneRight" type="Button" parent="PlayerSelectorContainer/FirstPlayerSelector/Buttons" unique_id=774351829]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -165,16 +201,6 @@ offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_51kxy")
-
-[node name="PanelContainer" type="PanelContainer" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=111947123]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
-
-[node name="Birdname" type="Label" parent="PlayerSelectorContainer/FirstPlayerSelector/PanelContainer" unique_id=1261167824]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "XXXXXXXXXXXX"
-horizontal_alignment = 1
 
 [node name="KeyHint" type="RichTextLabel" parent="PlayerSelectorContainer/FirstPlayerSelector" unique_id=60809374]
 layout_mode = 2
@@ -259,7 +285,7 @@ texture = ExtResource("5_ety38")
 
 [node name="Buttons" type="HBoxContainer" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=675562770]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="PlayerTwoLeft" type="Button" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=926039573]
@@ -283,6 +309,16 @@ grow_vertical = 2
 texture = ExtResource("5_51kxy")
 flip_h = true
 
+[node name="PanelContainer" type="PanelContainer" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=170305795]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
+
+[node name="Birdname" type="Label" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PanelContainer" unique_id=1242091218]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "XXXXXXXXXXXX"
+horizontal_alignment = 1
+
 [node name="PlayerTwoRight" type="Button" parent="PlayerSelectorContainer/SecondPlayerSelector/Buttons" unique_id=514101750]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
@@ -303,16 +339,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_51kxy")
 
-[node name="PanelContainer" type="PanelContainer" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=170305795]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_xer75")
-
-[node name="Birdname" type="Label" parent="PlayerSelectorContainer/SecondPlayerSelector/PanelContainer" unique_id=1242091218]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "XXXXXXXXXXXX"
-horizontal_alignment = 1
-
 [node name="KeyHint" type="RichTextLabel" parent="PlayerSelectorContainer/SecondPlayerSelector" unique_id=881643101]
 layout_mode = 2
 theme = ExtResource("7_j7yu4")
@@ -323,6 +349,16 @@ D - Right
 W - Accept[/b]"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=99425414]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 35.0
+offset_right = 668.0
+offset_bottom = 122.0
+theme = ExtResource("7_j7yu4")
+theme_override_font_sizes/font_size = 70
+text = "Character Select"
 
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" to="." method="_on_player_one_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneRight" to="." method="_on_player_one_right_pressed"]
