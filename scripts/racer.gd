@@ -23,6 +23,7 @@ var swerve_max_y: float = 25.0
 var swerve_position: Vector2 = Vector2(0, 0)
 
 var was_hit: bool = false
+var can_gloat: bool = false
 
 @onready var dust_effect: PackedScene = preload("res://scenes/effects/Collision.tscn")
 var graphics: Node2D
@@ -61,9 +62,11 @@ func registerHit() -> void:
 
 func processAdvance() -> void:
 	if was_hit:
+		can_gloat = false
 		if grid_position.y < grid_size.y:
 			setNewPosition(Vector2(grid_position.x, grid_position.y + 1))
 	else:
+		can_gloat = true
 		setNewPosition(Vector2(grid_position.x, grid_position.y - 1))
 	was_hit = false
 

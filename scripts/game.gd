@@ -3,6 +3,7 @@ extends Node2D
 @onready var racer_scene: PackedScene = preload("res://scenes/Racer.tscn")
 @onready var danger_scene: PackedScene = preload("res://scenes/effects/LaneDanger.tscn")
 @onready var card_drawer_scene: PackedScene = preload("res://scenes/cards.tscn")
+@onready var gloat_scene: PackedScene = preload("res://scenes/bird_text_box.tscn")
 
 var racers: Array[Racer] = []
 var racers_strategy: Array[Array] = [[], [], [], [], []]
@@ -22,7 +23,8 @@ enum game_states {
 	DANGER,
 	DRAW,
 	DANGERFLY,
-	UPDOWN
+	UPDOWN,
+	GLOAT
 }
 var game_state: int
 
@@ -51,6 +53,8 @@ enum cards {
 	load("res://assets/ui/card_1r.png"),
 	load("res://assets/ui/card_2r.png")
 ]
+
+var game_speed_modifier: float = 1.0
 
 func _ready() -> void:
 	for i: int in racer_count:
@@ -141,6 +145,7 @@ func drawCards() -> void:
 	add_child(card_drawer)
 	card_drawer.setupCards(standard_cards)
 	card_drawer.timesToMove = roundi(randf() * 4.0) + 1
+	card_drawer.cardSwitchSpeed = 2.2 - game_speed_modifier
 	card_drawer.init()
 
 func getCardAsset(card_type: int) -> Texture2D:
@@ -177,6 +182,30 @@ func checkGameOver() -> bool:
 func gameOver() -> void:
 	get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 
+func checkGloat() -> void:
+	var gloatees: Array[int] = []
+	var max_position: int = 10
+	for i: int in 5:
+		if racers[i].grid_position.y < max_position:
+			max_position = racers[i].grid_position.y
+	for i: int in 5:
+		if racers[i].can_gloat and racers[i].grid_position.y == max_position and not Global.is_player_human[i]:
+			gloatees.append(i)
+	changeGameSpeed(max_position)
+	if gloatees.size() > 0:
+		var gloater: int = gloatees.pick_random()
+		var overlay: Control = gloat_scene.instantiate()
+		add_child(overlay)
+		overlay.setup(Global.getBirdNames(gloater), Global.getBirdGloat(gloater), Global.getBirdPortrait(gloater), Global.getBirdCall(gloater))
+		game_state = game_states.GLOAT
+	else:
+		drawDanger()
+
+func changeGameSpeed(speed: int):
+	var modifier: float = 1.0 - speed * 0.1
+	game_speed_modifier = 1.0 + modifier
+	$Clouds.sky_speed = 5.0 * (game_speed_modifier * 2.0)
+
 func _process(delta: float) -> void:
 	if game_state == game_states.DANGER:
 		danger_time += delta
@@ -185,14 +214,14 @@ func _process(delta: float) -> void:
 	if game_state == game_states.REPOSITION:
 		reposition_time += delta
 		if reposition_time >= reposition_wait:
-			if checkGameOver():
-				gameOver()
-			else:
-				spawnDangers()
+			spawnDangers()
 	if game_state == game_states.UPDOWN:
 		updown_time += delta
 		if updown_time >= updown_wait:
-			drawDanger()
+			if checkGameOver():
+				gameOver()
+			else:
+				checkGloat()
 	if game_state == game_states.DRAW:
 		debug_time += delta
 		if debug_time >= debug_wait:

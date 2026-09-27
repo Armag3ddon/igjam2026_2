@@ -49,7 +49,7 @@ func playerOneChange(change: int) -> void:
 func playerOneAccept() -> void:
 	if Global.player_count == 2:
 		if player_one_selection == player_two_selection:
-			pass
+			return
 	player_one_emitter.visible = true
 	player_one_done = true
 
@@ -75,7 +75,7 @@ func playerTwoChange(change: int) -> void:
 
 func playerTwoAccept() -> void:
 	if player_one_selection == player_two_selection:
-		pass
+		return
 	player_two_emitter.visible = true
 	player_two_done = true
 
@@ -113,6 +113,6 @@ func doWait(delta: float) -> void:
 		Global.player_one_bird = player_one_selection
 		Global.player_two_bird = player_two_selection
 		var preloading: Node2D = preload_gpu_particles.instantiate()
-		preloading.position = Vector2(-1000.0, -1000.0)
+		preloading.position = Vector2(1000.0, 1000.0)
 		add_child(preloading)
 		get_tree().change_scene_to_file("res://scenes/game.tscn")

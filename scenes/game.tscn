@@ -39,7 +39,10 @@ position = Vector2(1536, 0)
 
 [node name="Cards" parent="." unique_id=811278244 instance=ExtResource("3_lnu2h")]
 visible = false
-position = Vector2(460, 140)
+offset_left = 460.0
+offset_top = 140.0
+offset_right = 460.0
+offset_bottom = 140.0
 
 [node name="CentralText" type="Label" parent="." unique_id=1573408332]
 anchors_preset = 8

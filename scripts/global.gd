@@ -56,6 +56,19 @@ func getBirdPortrait(bird: int) -> String:
 		return "res://assets/portraits/portrait_pigeon.png"
 	return ""
 
+func getBirdCall(bird: int) -> String:
+	if bird == BIRDS.CROW:
+		return "res://assets/snd/Crow.mp3"
+	if bird == BIRDS.GOOSE:
+		return "res://assets/snd/Goose.mp3"
+	if bird == BIRDS.OWL:
+		return "res://assets/snd/Owl.mp3"
+	if bird == BIRDS.PARROT:
+		return "res://assets/snd/Parrot.mp3"
+	if bird == BIRDS.PIGEON:
+		return "res://assets/snd/Pigeon.mp3"
+	return ""
+
 func getBirdNames(bird: int) -> String:
 	if bird == BIRDS.CROW:
 		return "CRUEL Crow"
@@ -68,3 +81,16 @@ func getBirdNames(bird: int) -> String:
 	if bird == BIRDS.PIGEON:
 		return "PIGEON"
 	return ""
+
+func getBirdGloat(bird: int) -> String:
+	if bird == BIRDS.PIGEON:
+		return "Coo!"
+	var gloats: Array[String] = [
+			"Don't blink, or you'll mistake me for a shooting star.",
+			"You’re flying in my slipstream. Try not to choke on it.",
+			"I left you so far behind you're entering a different time zone.",
+			"The sky isn't the limit. It's my starting line.",
+			"Requesting permission to fly solo at the front. It’s getting crowded in the back.",
+			"You look great from 30,000 feet up."
+		]
+	return gloats.pick_random()
