@@ -1,29 +1,31 @@
 [gd_scene format=3 uid="uid://be3vmrt8wlbhv"]
 
-[ext_resource type="Texture2D" uid="uid://blg2eesesnm8r" path="res://assets/ui/text_box.png" id="1_cxr5x"]
+[ext_resource type="Script" uid="uid://djjq3qgwh0n" path="res://scripts/bird_text_box.gd" id="1_d5eab"]
 [ext_resource type="Texture2D" uid="uid://c1acpyy0y4yrk" path="res://assets/ui/name_box.png" id="2_q8fyp"]
 [ext_resource type="Texture2D" uid="uid://dt5foqmmuru1a" path="res://assets/portraits/portrait_crow.png" id="3_q8fyp"]
+[ext_resource type="Theme" uid="uid://q5s5iusaxso6" path="res://misc/menu_theme.tres" id="3_tdbwe"]
 
-[node name="BirdTextBox" type="Node2D" unique_id=550207493]
-
-[node name="TextBox" type="TextureRect" parent="." unique_id=456083373]
-offset_left = 606.00006
-offset_top = 680.0
-offset_right = 947.00006
-offset_bottom = 1039.0
-rotation = 0.0035450745
-texture = ExtResource("1_cxr5x")
-
-[node name="NameCard" type="TextureRect" parent="." unique_id=1189546423]
-offset_left = 579.0
-offset_top = 514.00006
-offset_right = 919.99994
-offset_bottom = 873.00006
-rotation = 0.0035450745
-scale = Vector2(0.7, 0.7)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qqbjl"]
 texture = ExtResource("2_q8fyp")
+texture_margin_left = 55.0
+texture_margin_top = 15.0
+texture_margin_right = 55.0
+texture_margin_bottom = 15.0
+
+[node name="BirdTextBox" type="Control" unique_id=706932298]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1.025, 1.005)
+script = ExtResource("1_d5eab")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1297201996]
+layout_mode = 0
+offset_right = 1932.0
+offset_bottom = 1079.0
+color = Color(0, 0.011764706, 0.003921569, 0.101960786)
 
 [node name="Character" type="TextureRect" parent="." unique_id=1581445009]
+layout_mode = 0
 offset_left = 28.0
 offset_top = 508.0
 offset_right = 540.0
@@ -32,20 +34,35 @@ rotation = 0.0035450745
 scale = Vector2(1.11, 1.11)
 texture = ExtResource("3_q8fyp")
 
-[node name="Label" type="Label" parent="." unique_id=430908675]
-offset_left = 650.0
-offset_top = 811.0
-offset_right = 757.905
-offset_bottom = 842.765
-scale = Vector2(4.24, 4.24)
-text = "Pathetic!"
-horizontal_alignment = 1
+[node name="Panel" type="Panel" parent="." unique_id=2069169922]
+layout_mode = 1
+offset_left = 651.0
+offset_top = 767.0
+offset_right = 1666.0
+offset_bottom = 907.0
+theme = ExtResource("3_tdbwe")
 
-[node name="Label2" type="Label" parent="." unique_id=703000999]
-offset_left = 3405.9998
-offset_top = 4249.6396
-offset_right = 3522.3599
-offset_bottom = 4281.405
-scale = Vector2(4.24, 4.24)
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1042067335]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 0
+offset_left = -31.0
+offset_right = 1002.0
+offset_bottom = 108.0
+theme = ExtResource("3_tdbwe")
+bbcode_enabled = true
+text = "Pathetic! Gurr"
+fit_content = true
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1497677779]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 636.0
+offset_right = 1010.0
+offset_bottom = 735.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qqbjl")
+
+[node name="Birdname" type="Label" parent="PanelContainer" unique_id=1507533036]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Crow"
 horizontal_alignment = 1
