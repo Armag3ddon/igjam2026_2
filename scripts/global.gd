@@ -7,7 +7,7 @@ var player_two_bird: int
 
 var is_player_human: Array[bool] = [false, false, false, false, false]
 
-var winner_winner_chicken_dinner = [false, false, false, false, false]
+var winner_winner_chicken_dinner = [false, true, false, true, false]
 
 var bird_bots: Array[Array] = [
 	[2.0, 50.0], # Crow: balanced
