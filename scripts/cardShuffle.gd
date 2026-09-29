@@ -39,6 +39,7 @@ func setupCards(card_types: Array[int]) -> void:
 
 func init() -> void:
 	draw_state = draw_states.WAIT
+	Global.showTutorial(Global.TUTORIAL.DRAWBEGIN, get_parent())
 
 func flipCard(to_flip: int) -> void:
 	if to_flip >= cards.size():
@@ -57,6 +58,7 @@ func shuffleCards() -> void:
 		draw_state = draw_states.SELECT
 		birb_handler.selection_started = true
 		$DRAW.visible = true
+		Global.showTutorial(Global.TUTORIAL.DRAWEND, get_parent())
 		return
 	var first_card_index: int = randi_range(0,cards.size()-1)
 	var second_card_index: int = randi_range(0,cards.size()-1)

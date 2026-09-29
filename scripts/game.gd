@@ -70,6 +70,7 @@ func _ready() -> void:
 		manager.add_child.call_deferred(racer)
 	game_state = game_states.GET
 	text_effect.action("GET", 1.5)
+	Global.showTutorial(Global.TUTORIAL.GAMESTART, self)
 
 func _on_central_text_text_finished() -> void:
 	if game_state == game_states.RACE:
@@ -103,6 +104,7 @@ func flashDanger() -> void:
 			var warning: Node2D = danger_scene.instantiate()
 			lanes[i].addWarning(warning)
 		i += 1
+	Global.showTutorial(Global.TUTORIAL.DANGERS, self)
 
 func spawnDangers() -> void:
 	var i: int = 0

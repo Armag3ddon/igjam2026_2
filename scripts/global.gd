@@ -9,6 +9,18 @@ var is_player_human: Array[bool] = [false, false, false, false, false]
 
 var winner_winner_chicken_dinner = [false, true, false, true, false]
 
+var with_tutorial: bool = true
+
+var tutorials: Array[bool] = [false, false, false, false, false]
+
+enum TUTORIAL {
+	GAMESTART,
+	BIRDPOSITION,
+	DANGERS,
+	DRAWBEGIN,
+	DRAWEND
+}
+
 var bird_bots: Array[Array] = [
 	[2.0, 50.0], # Crow: balanced
 	[1.5, 25.0], # Goose: quicker but worse
@@ -29,6 +41,44 @@ enum BIRDBOT {
 	SPEED,
 	ACCURACY
 }
+
+func showTutorial(number: int, parent: Node) -> void:
+	if tutorials[number]:
+		return
+	var position: Vector2 = getTutorialPosition(number)
+	position -= Vector2(400.0, 350.0)
+	var text: String = getTutorialText(number)
+	Tutorial.showTutorial(position, text, parent)
+	tutorials[number] = true
+	get_tree().paused = true
+
+func getTutorialText(number: int) -> String:
+	match number:
+		TUTORIAL.GAMESTART:
+			return "Welcome to the race! Try to reach the top of the screen to be the [b]early bird[/b]."
+		TUTORIAL.BIRDPOSITION:
+			return "Take note of the position of your bird. It is on one of 5 vertical lanes."
+		TUTORIAL.DANGERS:
+			return "See these warnings? Obstacles will soon drop down those lanes."
+		TUTORIAL.DRAWBEGIN:
+			return "To move lanes, you must select one of these cards: two to left, to the left, stay, to the right, two to the right.\nMove your bird's portrait at the bottom to the card you think fits best. Every bird selects one card but only one bird can select a card."
+		TUTORIAL.DRAWEND:
+			return "Did you follow your favorite card? Select it now with your Accept key but be quick. The other birds will also "
+	return ""
+
+func getTutorialPosition(number: int) -> Vector2:
+	match number:
+		TUTORIAL.GAMESTART:
+			return Vector2(960.0, 540.0)
+		TUTORIAL.BIRDPOSITION:
+			return Vector2(960.0, 50.0)
+		TUTORIAL.DANGERS:
+			return Vector2(960.0, 700.0)
+		TUTORIAL.DRAWBEGIN:
+			return Vector2(500.0, 500.0)
+		TUTORIAL.DRAWEND:
+			return Vector2(1000.0, 500.0)
+	return Vector2(960.0, 540.0)
 
 func getBirdPackedScene(bird: int) -> PackedScene:
 	if bird == BIRDS.CROW:
