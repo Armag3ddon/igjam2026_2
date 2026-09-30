@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://cy36ujp5elk5"]
 
 [ext_resource type="Texture2D" uid="uid://do6lnx2ed4ijn" path="res://assets/pigeon_spritesheet.png" id="1_co275"]
+[ext_resource type="Shader" uid="uid://bj43cp02hgqdt" path="res://misc/shader/outline.gdshader" id="1_h1kb2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahppe"]
+shader = ExtResource("1_h1kb2")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6pxl2"]
 atlas = ExtResource("1_co275")
@@ -114,6 +124,7 @@ radius = 50.0
 [node name="Pigeon" type="Node2D" unique_id=237686385]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=548597333]
+material = SubResource("ShaderMaterial_ahppe")
 sprite_frames = SubResource("SpriteFrames_wh2wl")
 autoplay = "default"
 frame_progress = 0.8080695

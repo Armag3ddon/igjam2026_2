@@ -17,6 +17,7 @@ func setup(name: String, text: String, portrait: String, audio: String) -> void:
 	bird_sound.play()
 
 func _input(event: InputEvent) -> void:
-	get_parent().drawDanger()
-	get_parent().remove_child(self)
-	queue_free()
+	if event is InputEventKey and event.pressed:
+		get_parent().drawDanger()
+		get_parent().remove_child(self)
+		queue_free()

@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://dh7u63iwo25ie"]
 
+[ext_resource type="Shader" uid="uid://bj43cp02hgqdt" path="res://misc/shader/outline.gdshader" id="1_ba7fv"]
 [ext_resource type="Texture2D" uid="uid://pxagqlkpjhtv" path="res://assets/crow_spritesheet.png" id="1_bfmg8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e72c6"]
+shader = ExtResource("1_ba7fv")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ba7fv"]
 atlas = ExtResource("1_bfmg8")
@@ -217,6 +227,7 @@ radius = 50.0
 [node name="Crow" type="Node2D" unique_id=237686385]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=548597333]
+material = SubResource("ShaderMaterial_e72c6")
 sprite_frames = SubResource("SpriteFrames_o3h6e")
 animation = &"speed"
 autoplay = "default"

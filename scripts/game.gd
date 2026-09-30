@@ -59,17 +59,19 @@ var game_speed_modifier: float = 1.0
 func _ready() -> void:
 	for i: int in racer_count:
 		var racer: Racer = racer_scene.instantiate()
-		Global.is_player_human[i] = false
-		if Global.player_one_bird == i:
-			Global.is_player_human[i] = true
-		if Global.player_count == 2 and Global.player_two_bird == i:
-			Global.is_player_human[i] = true
 		racer.setGraphics(Global.getBirdPackedScene(i))
 		racers.append(racer)
 		racers[i].setNewPosition(Vector2(i, 10))
 		manager.add_child.call_deferred(racer)
+		Global.is_player_human[i] = false
+		if Global.player_one_bird == i:
+			Global.is_player_human[i] = true
+			#racer.setOutline(Color(0.0, 0.0, 1.0, 1.0))
+		if Global.player_count == 2 and Global.player_two_bird == i:
+			Global.is_player_human[i] = true
 	game_state = game_states.GET
 	text_effect.action("GET", 1.5)
+	Global.showTutorial(Global.TUTORIAL.GAMESTART, self)
 
 func _on_central_text_text_finished() -> void:
 	if game_state == game_states.RACE:
@@ -103,6 +105,7 @@ func flashDanger() -> void:
 			var warning: Node2D = danger_scene.instantiate()
 			lanes[i].addWarning(warning)
 		i += 1
+	Global.showTutorial(Global.TUTORIAL.DANGERS, self)
 
 func spawnDangers() -> void:
 	var i: int = 0

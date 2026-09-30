@@ -4,6 +4,9 @@ signal enemy_down
 
 var speed: float = 450.0
 
+func _ready() -> void:
+	$AnimatedSprite2D.frame = roundi(randf() * 3.0)
+
 func _process(delta: float) -> void:
 	position.y += speed * delta
 	if position.y >= 1090.0:

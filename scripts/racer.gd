@@ -34,6 +34,10 @@ func setGraphics(new_graphics: PackedScene) -> void:
 	graphics.scale = Vector2(graphics_scale, graphics_scale)
 	add_child(graphics)
 
+func setOutline(colour: Color) -> void:
+	graphics.get_child(0).material.set("shader_parameter/width", 5.0)
+	graphics.get_child(0).material.set("shader_parameter/color", colour)
+
 func setNewPosition(new_pos: Vector2) -> void:
 	grid_position = new_pos
 	is_moving = true
