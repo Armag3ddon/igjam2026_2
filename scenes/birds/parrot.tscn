@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cgr7373h1bti3"]
 
 [ext_resource type="Texture2D" uid="uid://borejhr2is7eu" path="res://assets/parrot_spritesheet.png" id="1_o6els"]
+[ext_resource type="Shader" uid="uid://bj43cp02hgqdt" path="res://misc/shader/outline.gdshader" id="2_78axp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78axp"]
 atlas = ExtResource("1_o6els")
@@ -108,6 +109,15 @@ animations = [{
 "speed": 25.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ba7fv"]
+shader = ExtResource("2_78axp")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6els"]
 radius = 50.0
 
@@ -119,6 +129,7 @@ autoplay = "default"
 frame_progress = 0.8050583
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1416373047]
+material = SubResource("ShaderMaterial_ba7fv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=39305098]
 shape = SubResource("CircleShape2D_o6els")

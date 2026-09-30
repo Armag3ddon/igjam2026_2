@@ -1,6 +1,17 @@
 [gd_scene format=3 uid="uid://c0gqmndrf5c33"]
 
+[ext_resource type="Shader" uid="uid://bj43cp02hgqdt" path="res://misc/shader/outline.gdshader" id="1_4plyn"]
 [ext_resource type="Texture2D" uid="uid://blwxywln25hsp" path="res://assets/owl_spritesheet.png" id="1_tkaqb"]
+[ext_resource type="Material" uid="uid://8yxs1kxwomih" path="res://misc/outline_shader_material.tres" id="2_6pxl2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dusnt"]
+shader = ExtResource("1_4plyn")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6pxl2"]
 atlas = ExtResource("1_tkaqb")
@@ -114,11 +125,13 @@ radius = 50.0
 [node name="Owl" type="Node2D" unique_id=237686385]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=548597333]
+material = SubResource("ShaderMaterial_dusnt")
 sprite_frames = SubResource("SpriteFrames_wh2wl")
 autoplay = "default"
 frame_progress = 0.8050583
 
 [node name="Area2D" type="Area2D" parent="." unique_id=500254524]
+material = ExtResource("2_6pxl2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1928878959]
 shape = SubResource("CircleShape2D_tkaqb")
