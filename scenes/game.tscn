@@ -65,11 +65,14 @@ vertical_alignment = 1
 script = ExtResource("4_lbhrr")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=716045523]
+process_mode = 3
 stream = ExtResource("6_u5sy4")
+volume_db = -5.0
 autoplay = true
 parameters/looping = true
 
 [node name="BackgroundMusic_Cards" type="AudioStreamPlayer" parent="." unique_id=855933682]
+process_mode = 3
 stream = ExtResource("7_gee14")
 volume_db = -80.0
 autoplay = true

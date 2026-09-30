@@ -69,4 +69,3 @@ text = "Crow"
 horizontal_alignment = 1
 
 [node name="Birdcall" type="AudioStreamPlayer" parent="." unique_id=873076783]
-volume_db = -5.0
