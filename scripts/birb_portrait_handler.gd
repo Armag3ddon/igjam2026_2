@@ -100,9 +100,10 @@ func autoSelectLastCard() -> void:
 func selectCardForBot(bird: int, strategy: Array, card_order: Array[Node]) -> void:
 	if player_has_picked[bird]:
 		return
-	var accuracy: float = Global.bird_bots[bird][Global.BIRDBOT.ACCURACY]
+	var accuracy: Array = Global.bird_bots_accuracy[bird]
+	var accuracy_target: float = randf() * (accuracy[1] - accuracy[0]) + accuracy[0]
 	var accurate_roll: float = randf() * 100.0
-	if accurate_roll < accuracy:
+	if accurate_roll < accuracy_target:
 		if not selectCorrectCard(bird, strategy, card_order):
 			selectIncorrectCard(bird, strategy, card_order)
 	else:

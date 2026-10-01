@@ -25,7 +25,7 @@ func unflip() -> void:
 	animator.play("unflip")
 
 func picked(player: int) -> void:
-	var affix: String = ""
+	var affix: String = "_computer"
 	if player == Global.player_one_bird:
 		affix = "_p1"
 	if player == Global.player_two_bird and Global.player_count > 1:

@@ -13,6 +13,7 @@ config_version=5
 config/name="ggj2026_2"
 run/main_scene="uid://d6mms4soqkit"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/stretch_mode=0
 boot_splash/image="uid://b14vvc7hnh8fi"
 config/icon="res://icon.svg"
 

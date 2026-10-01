@@ -29,6 +29,22 @@ var bird_bots: Array[Array] = [
 	[0.5, 0.0] # Pigeon: quick but random
 ]
 
+var bird_bots_accuracy: Array[Array] = [
+	[40.0, 65.0], # Crow: medium accurate
+	[35.0, 55.0], # Goose: low accuracy
+	[95.0, 100.1], # Owl: very accurate
+	[75.0, 95.0], # Parrot: accurate
+	[5.0, 50.0] # Pigeon: low accuracy
+]
+
+var bird_bots_speed: Array[Array] = [
+	[0.8, 1.8], # Crow: medium speed
+	[0.5, 1.0], # Goose: quick
+	[1.3, 2.5], # Owl: slow
+	[0.8, 2.2], # Parrot: can be slow
+	[0.1, 0.7] # Pigeon: very quick
+]
+
 enum BIRDS {
 	CROW,
 	GOOSE,

@@ -30,6 +30,8 @@ var select_time: float = 0.0
 var end_time: float = 0.0
 var end_wait: float = 1.5
 
+var bot_speed: Array[float] = [0.0, 0.0, 0.0, 0.0, 0.0]
+
 func setupCards(card_types: Array[int]) -> void:
 	card_types.shuffle()
 	var i: int = 0
@@ -57,6 +59,7 @@ func shuffleCards() -> void:
 	if timesToMove < 0:
 		draw_state = draw_states.SELECT
 		birb_handler.selection_started = true
+		rollBotSpeed()
 		$DRAW.visible = true
 		Global.showTutorial(Global.TUTORIAL.DRAWEND, get_parent())
 		return
@@ -71,6 +74,12 @@ func shuffleCards() -> void:
 	cards[first_card_index] = second_card
 	cards[second_card_index] = first_card
 	flip_time = 0.0
+
+func rollBotSpeed() -> void:
+	for i: int in 5:
+		var bot_speed_variation: Array = Global.bird_bots_speed[i]
+		var speed_roll: float = randf() * (bot_speed_variation[1] - bot_speed_variation[0]) + bot_speed_variation[0]
+		bot_speed[i] = speed_roll
 
 func selectionDone() -> void:
 	draw_state = draw_states.END
@@ -101,7 +110,7 @@ func _process(delta: float) -> void:
 		select_time += delta
 		for i: int in 5:
 			if not Global.is_player_human[i]:
-				if select_time >= Global.bird_bots[i][Global.BIRDBOT.SPEED]:
+				if select_time >= bot_speed[i]:
 					birb_handler.selectCardForBot(i, get_parent().racers_strategy[i], cards)
 	if draw_state == draw_states.WAIT:
 		wait_time += delta
