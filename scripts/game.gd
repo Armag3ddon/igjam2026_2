@@ -67,8 +67,10 @@ func _ready() -> void:
 		if Global.player_one_bird == i:
 			Global.is_player_human[i] = true
 			#racer.setOutline(Color(0.0, 0.0, 1.0, 1.0))
+			racer.setPlayer(1)
 		if Global.player_count == 2 and Global.player_two_bird == i:
 			Global.is_player_human[i] = true
+			racer.setPlayer(2)
 	game_state = game_states.GET
 	text_effect.action("GET", 1.5)
 	Global.showTutorial(Global.TUTORIAL.GAMESTART, self)

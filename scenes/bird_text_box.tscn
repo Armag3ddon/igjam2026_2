@@ -70,3 +70,19 @@ horizontal_alignment = 1
 
 [node name="Birdcall" type="AudioStreamPlayer" parent="." unique_id=873076783]
 volume_db = -5.0
+
+[node name="ClosingHint" type="Label" parent="." unique_id=1241219599]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1280.0
+offset_top = 960.0
+offset_right = 1772.0
+offset_bottom = 1004.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_tdbwe")
+text = "Press any button to proceed"

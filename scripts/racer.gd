@@ -38,6 +38,12 @@ func setOutline(colour: Color) -> void:
 	graphics.get_child(0).material.set("shader_parameter/width", 5.0)
 	graphics.get_child(0).material.set("shader_parameter/color", colour)
 
+func setPlayer(player: int) -> void:
+	if player == 1:
+		graphics.setPlayerOne()
+	if player == 2:
+		graphics.setPlayerTwo()
+
 func setNewPosition(new_pos: Vector2) -> void:
 	grid_position = new_pos
 	is_moving = true
@@ -72,6 +78,7 @@ func processAdvance() -> void:
 	else:
 		can_gloat = true
 		setNewPosition(Vector2(grid_position.x, grid_position.y - 1))
+		graphics.speedUp()
 	was_hit = false
 
 func _process(delta: float) -> void:
