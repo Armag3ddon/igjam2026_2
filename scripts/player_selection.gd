@@ -50,7 +50,7 @@ func playerOneChange(change: int) -> void:
 
 func playerOneAccept() -> void:
 	if Global.player_count == 2:
-		if player_one_selection == player_two_selection:
+		if player_one_selection == player_two_selection and player_two_done:
 			return
 	var texture: Texture2D = load("res://assets/ui/character_select_p1.png")
 	player_one_portrait_border.texture = texture
@@ -78,7 +78,7 @@ func playerTwoChange(change: int) -> void:
 	playerTwoChanged()
 
 func playerTwoAccept() -> void:
-	if player_one_selection == player_two_selection:
+	if player_one_selection == player_two_selection and player_one_done:
 		return
 	var texture: Texture2D = load("res://assets/ui/character_select_p2.png")
 	player_two_portrait_border.texture = texture
