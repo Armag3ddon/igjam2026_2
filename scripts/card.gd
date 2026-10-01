@@ -24,10 +24,15 @@ func flip(card_drawer: Control) -> void:
 func unflip() -> void:
 	animator.play("unflip")
 
-func picked() -> void:
-	var picked: Texture2D = load("res://assets/ui/card_p1.png")
-	var picked_back: Texture2D = load("res://assets/ui/card_back_p1.png")
-	$Foreground.texture = picked
+func picked(player: int) -> void:
+	var affix: String = ""
+	if player == Global.player_one_bird:
+		affix = "_p1"
+	if player == Global.player_two_bird and Global.player_count > 1:
+		affix = "_p2"
+	var picked_texture: Texture2D = load("res://assets/ui/card" + affix + ".png")
+	var picked_back: Texture2D = load("res://assets/ui/card_back" + affix + ".png")
+	$Foreground.texture = picked_texture
 	$Background.texture = picked_back
 
 func _process(delta: float) -> void:
