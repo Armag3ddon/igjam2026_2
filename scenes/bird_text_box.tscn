@@ -69,7 +69,7 @@ text = "Crow"
 horizontal_alignment = 1
 
 [node name="Birdcall" type="AudioStreamPlayer" parent="." unique_id=873076783]
-volume_db = -5.0
+volume_db = 0.0
 
 [node name="ClosingHint" type="Label" parent="." unique_id=1241219599]
 layout_mode = 1

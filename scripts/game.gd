@@ -130,7 +130,7 @@ func enemyDown() -> void:
 func drawCards() -> void:
 	game_state = game_states.DRAW
 	$BackgroundMusic.volume_db = -80.0
-	$BackgroundMusic_Cards.volume_db = 0.0
+	$BackgroundMusic_Cards.volume_db = -5.0
 	# Strategize for bots
 	for i: int in 5:
 		var current_lane: int = racers[i].grid_position.x
@@ -172,7 +172,7 @@ func getWrappedLane(lane: int) -> int:
 func drawDone():
 	reposition_time = 0.0
 	game_state = game_states.REPOSITION
-	$BackgroundMusic.volume_db = 0.0
+	$BackgroundMusic.volume_db = -5.0
 	$BackgroundMusic_Cards.volume_db = -80.0
 
 func checkGameOver() -> bool:
