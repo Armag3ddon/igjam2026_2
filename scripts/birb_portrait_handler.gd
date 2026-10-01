@@ -51,19 +51,25 @@ func switchPlayerToCard(player: int, card: int) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("PlayerOne_Left"):
-		switchPlayerToCard(Global.player_one_bird, wrapAround(current_player_selections[Global.player_one_bird] - 1))
+		if not player_has_picked[Global.player_one_bird]:
+			switchPlayerToCard(Global.player_one_bird, wrapAround(current_player_selections[Global.player_one_bird] - 1))
 	if event.is_action_pressed("PlayerOne_Right"):
-		switchPlayerToCard(Global.player_one_bird, wrapAround(current_player_selections[Global.player_one_bird] + 1))
+		if not player_has_picked[Global.player_one_bird]:
+			switchPlayerToCard(Global.player_one_bird, wrapAround(current_player_selections[Global.player_one_bird] + 1))
 	if event.is_action_pressed("PlayerTwo_Left") and Global.player_count > 1:
-		switchPlayerToCard(Global.player_two_bird, wrapAround(current_player_selections[Global.player_two_bird] - 1))
+		if not player_has_picked[Global.player_two_bird]:
+			switchPlayerToCard(Global.player_two_bird, wrapAround(current_player_selections[Global.player_two_bird] - 1))
 	if event.is_action_pressed("PlayerTwo_Right") and Global.player_count > 1:
-		switchPlayerToCard(Global.player_two_bird, wrapAround(current_player_selections[Global.player_two_bird] + 1))
+		if not player_has_picked[Global.player_two_bird]:
+			switchPlayerToCard(Global.player_two_bird, wrapAround(current_player_selections[Global.player_two_bird] + 1))
 	if event.is_action_pressed("PlayerOne_Accept") and selection_started:
-		if not cardsPicked[current_player_selections[Global.player_one_bird]]:
-			playerSelectsCard(Global.player_one_bird, current_player_selections[Global.player_one_bird], cards_node.cards[current_player_selections[Global.player_one_bird]])
+		if not player_has_picked[Global.player_one_bird]:
+			if not cardsPicked[current_player_selections[Global.player_one_bird]]:
+				playerSelectsCard(Global.player_one_bird, current_player_selections[Global.player_one_bird], cards_node.cards[current_player_selections[Global.player_one_bird]])
 	if event.is_action_pressed("PlayerTwo_Accept") and Global.player_count > 1 and selection_started:
-		if not cardsPicked[current_player_selections[Global.player_two_bird]]:
-			playerSelectsCard(Global.player_two_bird, current_player_selections[Global.player_two_bird], cards_node.cards[current_player_selections[Global.player_two_bird]])
+		if not player_has_picked[Global.player_two_bird]:
+			if not cardsPicked[current_player_selections[Global.player_two_bird]]:
+				playerSelectsCard(Global.player_two_bird, current_player_selections[Global.player_two_bird], cards_node.cards[current_player_selections[Global.player_two_bird]])
 
 func wrapAround(card: int) -> int:
 	if card < 0:
