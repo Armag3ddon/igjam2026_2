@@ -362,6 +362,25 @@ theme = ExtResource("7_j7yu4")
 theme_override_font_sizes/font_size = 70
 text = "Character Select"
 
+[node name="Tutorial" type="CheckBox" parent="." unique_id=337294044]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -331.5
+offset_top = -102.0
+offset_right = 331.5
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+offset_transform_enabled = true
+theme = ExtResource("7_j7yu4")
+theme_override_font_sizes/font_size = 50
+button_pressed = true
+text = "Show Tutorial messages"
+
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoLeft" to="." method="_on_player_two_left_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/SecondPlayerSelector/Buttons/PlayerTwoRight" to="." method="_on_player_two_right_pressed"]
 [connection signal="pressed" from="PlayerSelectorContainer/FirstPlayerSelector/Buttons/PlayerOneLeft" to="." method="_on_player_one_left_pressed"]

@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cy2eanlbxkjp7" path="res://assets/ui/btn_normal.png" id="3_r4i3j"]
 [ext_resource type="Texture2D" uid="uid://chfw4seeqdslr" path="res://assets/ui/btn_pressed.png" id="4_275ii"]
 [ext_resource type="FontFile" uid="uid://82q3dauvg7w2" path="res://assets/ui/classica/Classica-Book.ttf" id="5_efgb4"]
+[ext_resource type="Texture2D" uid="uid://spcuk12tmyhh" path="res://assets/ui/checkbox_checked.png" id="5_x5aey"]
+[ext_resource type="Texture2D" uid="uid://bu6fwomgxn56w" path="res://assets/ui/checkbox.png" id="6_60frb"]
 [ext_resource type="StyleBox" uid="uid://cfodra4fh5yvg" path="res://misc/textbox.tres" id="6_r4i3j"]
 [ext_resource type="FontFile" uid="uid://bm0yrnmuk1mh2" path="res://assets/ui/classica/Classica-BoldOblique.ttf" id="7_e72c6"]
 [ext_resource type="FontFile" uid="uid://dng7let6atho1" path="res://assets/ui/classica/Classica-BookOblique.ttf" id="8_dusnt"]
@@ -30,6 +32,16 @@ texture_margin_top = 25.0
 texture_margin_right = 90.0
 texture_margin_bottom = 30.0
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5j1m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pndby"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_62val"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw1pm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uqq6f"]
+
 [resource]
 Button/font_sizes/font_size = 25
 Button/fonts/font = ExtResource("1_qadq4")
@@ -37,6 +49,14 @@ Button/styles/focus = SubResource("StyleBoxTexture_qadq4")
 Button/styles/hover = SubResource("StyleBoxTexture_qadq4")
 Button/styles/normal = SubResource("StyleBoxTexture_5k11c")
 Button/styles/pressed = SubResource("StyleBoxTexture_r4i3j")
+CheckBox/colors/font_color = Color(0.22745098, 0.21960784, 0, 1)
+CheckBox/icons/checked = ExtResource("5_x5aey")
+CheckBox/icons/unchecked = ExtResource("6_60frb")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_f5j1m")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_pndby")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_62val")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_dw1pm")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_uqq6f")
 Label/colors/font_color = Color(0.22745098, 0.21960784, 0, 1)
 Label/colors/font_outline_color = Color(0.78039217, 0.76862746, 0.7490196, 0.68235296)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)

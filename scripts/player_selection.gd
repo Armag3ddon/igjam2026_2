@@ -121,4 +121,7 @@ func doWait(delta: float) -> void:
 		var preloading: Node2D = preload_gpu_particles.instantiate()
 		preloading.position = Vector2(1000.0, 1000.0)
 		add_child(preloading)
+		#print($Tutorial.button_pressed)
+		if not $Tutorial.button_pressed:
+			Global.tutorials = [true, true, true, true, true]
 		get_tree().change_scene_to_file("res://scenes/game.tscn")
